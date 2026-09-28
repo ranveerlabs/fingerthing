@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+*.kicad_prl
+*.kicad_sch.lck
+*.kicad_pcb.lck
+*-backups/
