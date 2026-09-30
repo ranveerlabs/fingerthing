@@ -1,4 +1,3 @@
 # hardware
 
-The fingerprint sensor, controller and host connection have not been selected.
-Schematics, PCB layout and fabrication files will live here once design starts.
+[Build plan](DESIGN.md). Pico 2 first. No custom PCB yet.

@@ -1,0 +1,36 @@
+# hardware
+
+Pico 2 for bring-up. Get registration and sign-in working with pico-fido2 and the
+button before adding a fingerprint sensor. npm is the first real-service test.
+
+## sensor
+
+R503 is the first candidate. Match on the module, send the result over UART.
+Confirm the exact supplier's voltage, pinout and protocol before ordering.
+
+A fresh match can gate user presence. It must not set FIDO's UV flag by itself.
+Keep the upstream PIN path. Fingerprint UV needs enrollment authorization,
+retry limits, reset handling and CTAP integration. PIN fallback does not prevent
+someone injecting a fake match on the UART wires.
+
+## board
+
+- RP2350A, 12 MHz crystal, QSPI flash. Start from Raspberry Pi's reference circuit.
+- USB-C, separate 5.1k CC pull-downs, ESD protection, 90 ohm differential routing.
+- 3.3 V supply plus the RP2350 core regulator circuit and reference decoupling.
+- Sensor connector, BOOTSEL, status LED and SWD pads.
+- Four layers preferred. Assembly service for the QFN.
+
+Select flash and regulator part numbers after checking the reference BOM and
+assembly stock. USB series termination follows the RP2350 reference, not a
+copied RP2040 value. The core supply needs more than an external 3.3 V LDO.
+
+OTP is storage, not automatic key protection. Secure boot, debug restrictions,
+key provisioning and silicon revision all matter. Upstream initializes and locks key storage on first boot. Use a dedicated
+bring-up board. Secure-boot provisioning waits until updates and recovery work.
+
+## references
+
+- [RP2350 design files and hardware guide](https://pip.raspberrypi.com/categories/1214-rp2350)
+- [RP2350 security features](https://pip-assets.raspberrypi.com/categories/1260-security/documents/RP-009377-WP-1-Understanding%20RP2350_s%20security%20features.pdf)
+- [npm security-key setup](https://docs.npmjs.com/configuring-two-factor-authentication/)

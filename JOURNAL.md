@@ -14,3 +14,38 @@ starting the schematic. Fingerprint enrollment, matching, credential storage
 and recovery need a design before firmware work starts.
 
 Session time was not recorded.
+
+## session 002 - 2026-09-27
+
+Compared a plug-in security key with a separate fingerprint button. The proposed
+first version uses a USB cable so the sensor can sit beside the keyboard. It
+would still behave as a security key through CTAP2 over USB HID.
+
+Added [design notes](hardware/DESIGN.md) with the authentication boundary, parts
+to evaluate and prototype checks. Reviewed the FIDO CTAP and W3C WebAuthn
+specifications. A touch establishes presence, while fingerprint matching or a
+PIN provides user verification. Browser passkeys and OS login need separate
+compatibility work.
+
+No components were selected or tested. Session time was not recorded.
+
+## session 003 - 2026-09-27
+
+Narrowed the first target to 2FA on my npm account. Checked npm's documentation:
+security keys are registered on the website through WebAuthn and can also be
+used for CLI authentication. Updated the design with npm registration, fresh
+sign-in and the `npm login` browser flow as the first acceptance checks.
+
+Discoverable credentials are still useful for broader passkey support, but
+npm's exact WebAuthn requirements have not been observed. No account settings
+were changed and no hardware was tested. Session time was not recorded.
+
+## session 004 - 2026-09-30
+
+Switched the build plan to Pico 2 and librekeys/pico-fido2. R503 is the sensor
+candidate. Removed the SEN0348 code and enclosure from the active tree, cut the
+readmes, and added a FreeBSD USB permission rule. No hardware tests yet.
+
+The upstream startup code writes key material into OTP and locks those pages.
+A first flash is not reversible just by replacing the firmware. Secure boot is
+a separate step.
