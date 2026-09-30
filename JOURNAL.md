@@ -49,3 +49,15 @@ readmes, and added a FreeBSD USB permission rule. No hardware tests yet.
 The upstream startup code writes key material into OTP and locks those pages.
 A first flash is not reversible just by replacing the firmware. Secure boot is
 a separate step.
+
+## session 005 - 2026-09-30
+
+Built librekeys/pico-fido2 for Pico 2 with SDK 2.1.1. Upstream's button check can
+return success before configuration, so this build requires a fresh press and
+release. Timeout, cancellation, pre-held button and timer-wrap tests pass.
+
+The UF2 is 873472 bytes. Picotool identifies Pico 2, RP2350 ARM Secure, firmware
+7.4 and a verified image hash. Secure boot is not enabled. Nothing flashed yet.
+
+Pinned Mbed TLS to the upstream build's 3.6.5 revision and removed CMake's Git
+configuration and dependency-replacement steps.
