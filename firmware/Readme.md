@@ -1,21 +1,23 @@
 # firmware
 
-Pico 2 build of [librekeys/pico-fido2](https://github.com/librekeys/pico-fido2).
-Source revisions are pinned in `build.sh`. Needs Git, CMake 3.19+, Make, ARM GCC
-with Newlib, a native C compiler and Python 3.
+[librekeys/pico-fido2](https://github.com/librekeys/pico-fido2) on Pico 2.
+Pinned sources. Git, CMake, Make, ARM GCC with Newlib, native C compiler, Python 3.
 
 ```sh
 bash firmware/build.sh
+bash firmware/build.sh sensor
 ```
 
-Output: `.build/pico2/pico_fido2.uf2`. Hold BOOTSEL while plugging in a dedicated
-Pico 2, then copy the UF2 onto its USB drive. Upstream writes and locks key
-material in OTP on first boot. This cannot be undone by reflashing.
+UF2: `.build/pico2/pico_fido2.uf2` or `.build/sensor/pico_fido2.uf2`.
+BOOTSEL while plugging in, then copy the UF2. Use a dedicated development board:
+upstream writes and locks OTP keys on first boot. Reflashing cannot undo this.
 
-The button patch requires a fresh press and release within 30 seconds. It removes
-upstream's unconfigured-device bypass. Tests cover timeout, cancellation,
-pre-held buttons and timer wrap. The dependency patch stops CMake from changing
-Git settings or replacing its own crypto sources during configuration.
+Button: fresh press and release. Sensor: fresh match in slot 0, one attempt per
+request. Button fallback requires a verified PIN for that request. Both time out
+after 30 seconds. Fingerprint approval never sets UV. OTP, OATH and debug output
+are disabled. Secure boot is not enabled.
 
-Built for Pico 2 and checked with picotool. No hardware or npm test yet.
-Secure boot is not enabled. Fingerprint matching is not connected yet.
+R503: 3.3V and GND, sensor RX to GP4, TX to GP5. UART1, 57600 baud.
+Enrollment is not implemented yet. UART matches can be spoofed.
+
+Builds and host tests pass. No hardware, npm or FreeBSD test yet.

@@ -1,0 +1,32 @@
+--- a/src/fido/fido.c
++++ b/src/fido/fido.c
+@@ -505,14 +505,22 @@
+ 
+ uint32_t user_present_time_limit = 0;
+ 
++bool check_user_presence_with_pin(bool pin) {
++#ifdef FINGERTHING_R503
++    uint32_t val = pin ? EV_PRESS_FINGER_PIN : EV_PRESS_FINGER;
++    if (!queue_try_add(&card_to_usb_q, &val)) return false;
++    do {
++        queue_remove_blocking(&usb_to_card_q, &val);
++    } while (val != EV_BUTTON_PRESSED && val != EV_BUTTON_TIMEOUT);
++    return val == EV_BUTTON_PRESSED;
++#else
++    (void)pin;
++    return !wait_button_pressed();
++#endif
++}
++
+ bool check_user_presence() {
+-    if (user_present_time_limit == 0 || user_present_time_limit + TRANSPORT_TIME_LIMIT < board_millis()) {
+-        if (wait_button_pressed() == true) { //timeout
+-            return false;
+-        }
+-        //user_present_time_limit = board_millis();
+-    }
+-    return true;
++    return check_user_presence_with_pin(false);
+ }
+ 
+ uint32_t get_sign_counter() {

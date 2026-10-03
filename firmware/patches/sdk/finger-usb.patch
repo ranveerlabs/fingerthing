@@ -1,0 +1,25 @@
+--- a/src/usb/usb.c
++++ b/src/usb/usb.c
+@@ -23,6 +23,9 @@
+ #include "bsp/board.h"
+ #endif
+ #include "usb.h"
++#ifdef FINGERTHING_R503
++#include "finger.h"
++#endif
+ #include "apdu.h"
+ #ifndef ENABLE_EMULATION
+ #include "tusb.h"
+@@ -271,6 +274,12 @@
+                 return PICOKEY_OK;
+             }
+ #ifndef ENABLE_EMULATION
++#ifdef FINGERTHING_R503
++            else if (m == EV_PRESS_FINGER || m == EV_PRESS_FINGER_PIN) {
++                uint32_t flag = wait_fingerprint(m == EV_PRESS_FINGER_PIN) ? EV_BUTTON_TIMEOUT : EV_BUTTON_PRESSED;
++                queue_try_add(&usb_to_card_q, &flag);
++            }
++#endif
+             else if (m == EV_PRESS_BUTTON) {
+                 uint32_t flag = wait_button() ? EV_BUTTON_TIMEOUT : EV_BUTTON_PRESSED;
+                 queue_try_add(&usb_to_card_q, &flag);

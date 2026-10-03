@@ -1,0 +1,11 @@
+--- a/src/usb/hid/hid.c
++++ b/src/usb/hid/hid.c
+@@ -484,7 +484,7 @@
+                   (msg_packet.len == msg_packet.current_len && msg_packet.len > 0))) {
+             if (last_cmd == CTAPHID_OTP) {
+                 is_nk = true;
+-#ifdef ENABLE_OATH_APP
++#if ENABLE_OATH_APP
+                 select_app(oath_aid + 1, oath_aid[0]);
+ #endif
+             }

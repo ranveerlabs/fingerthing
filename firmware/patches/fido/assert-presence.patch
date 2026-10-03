@@ -1,0 +1,24 @@
+--- a/src/fido/cbor_get_assertion.c
++++ b/src/fido/cbor_get_assertion.c
+@@ -438,19 +438,8 @@
+         }
+ 
+         if (options.up == ptrue || options.present == false || options.up == NULL) { //9.1
+-            if (pinUvAuthParam.present == true) {
+-                if (getUserPresentFlagValue() == false) {
+-                    if (check_user_presence() == false) {
+-                        CBOR_ERROR(CTAP2_ERR_OPERATION_DENIED);
+-                    }
+-                }
+-            }
+-            else {
+-                if (!(flags & FIDO2_AUT_FLAG_UP)) {
+-                    if (check_user_presence() == false) {
+-                        CBOR_ERROR(CTAP2_ERR_OPERATION_DENIED);
+-                    }
+-                }
++            if (!check_user_presence_with_pin((flags & FIDO2_AUT_FLAG_UV) != 0)) {
++                CBOR_ERROR(CTAP2_ERR_OPERATION_DENIED);
+             }
+             flags |= FIDO2_AUT_FLAG_UP;
+             clearUserPresentFlag();

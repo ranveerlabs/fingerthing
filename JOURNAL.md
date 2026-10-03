@@ -61,3 +61,16 @@ The UF2 is 873472 bytes. Picotool identifies Pico 2, RP2350 ARM Secure, firmware
 
 Pinned Mbed TLS to the upstream build's 3.6.5 revision and removed CMake's Git
 configuration and dependency-replacement steps.
+
+## session 006 - 2026-10-02
+
+Added R503 packet handling and a fingerprint presence gate. Slot 0 only, fresh
+touch, one match attempt per request. Button fallback needs that request's PIN.
+Malformed replies, sensor errors, held inputs and cancellation fail closed.
+Host tests cover timer wrap and replies arriving after the request timeout.
+
+Registration could skip presence without a PIN. Patched registration and
+assertion to check each request, and removed cached verification from registration.
+Fingerprint matching does not set UV. Disabled unused OTP, OATH and debug output.
+Both Pico 2 builds pass. Picotool verifies the sensor image hash.
+Enrollment and hardware tests are still pending. No custom PCB yet.

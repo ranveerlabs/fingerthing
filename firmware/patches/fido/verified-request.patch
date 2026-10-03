@@ -1,0 +1,12 @@
+--- a/src/fido/cbor_make_credential.c
++++ b/src/fido/cbor_make_credential.c
+@@ -402,9 +402,6 @@
+ 
+     CBOR_CHECK(credential_create(&rp.id, &user.id, &user.parent.name, &user.displayName, &options, &extensions, (!ka || ka->use_sign_count == ptrue), alg, curve, cred_id, &cred_id_len));
+ 
+-    if (getUserVerifiedFlagValue()) {
+-        flags |= FIDO2_AUT_FLAG_UV;
+-    }
+     size_t ext_len = 0;
+     uint8_t ext[512] = {0};
+     CborEncoder encoder, mapEncoder, mapEncoder2;

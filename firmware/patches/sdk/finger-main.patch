@@ -1,0 +1,23 @@
+--- a/src/main.c
++++ b/src/main.c
+@@ -227,6 +227,20 @@
+     return 0;
+ }
+ 
++#ifdef FINGERTHING_R503
++#include "finger.h"
++bool wait_fingerprint(bool pin) {
++    uint32_t mode = led_get_mode();
++    cancel_button = false;
++    req_button_pending = true;
++    led_set_mode(MODE_BUTTON);
++    bool failed = finger_wait(pin);
++    led_set_mode(mode);
++    req_button_pending = false;
++    return failed;
++}
++#endif
++
+ #endif
+ 
+ bool set_rtc = false;

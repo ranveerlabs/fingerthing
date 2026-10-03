@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -188,5 +188,8 @@
+     else()
+         target_link_libraries(pico_fido2 PRIVATE pico_keys_sdk pico_stdlib pico_multicore hardware_flash hardware_sync hardware_adc pico_unique_id pico_aon_timer tinyusb_device tinyusb_board)
+         pico_add_extra_outputs(${CMAKE_PROJECT_NAME})
++        if(FINGERTHING_DIR)
++            include("${FINGERTHING_DIR}/config.cmake")
++        endif()
+     endif()
+ endif()
