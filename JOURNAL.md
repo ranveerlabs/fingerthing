@@ -177,3 +177,17 @@ Reviewed GROW's 2019.6 R503 manual. The board's six-pin mapping matches its
 3.3 V variant. Documented the 28 mm diameter, M25 thread and 19 mm height.
 The manual names an MX1.0 sensor plug while J2 uses JST SH. The adapter cable
 and supplied sensor still need physical verification.
+
+## session 017 - 2026-10-04
+
+Added a rounded two-piece enclosure for the 34 x 48 mm board and documented
+R503. The body is 39.4 x 53.4 x 33 mm. It has a separate button plunger,
+underside screws and nut pockets. BOOTSEL and SWD require opening the case.
+
+OpenSCAD 2021.01 exports three closed, connected meshes. Checked the shell
+joint, sensor opening, board guides and button at rest and 0.6 mm down.
+Intersections are empty or shared mounting surfaces without solid overlap.
+Rendered the exported meshes. The assembly uses approximate component blocks.
+
+Sensor flange and nut dimensions, cable routing, USB plug clearance and button
+release still need measurements and a print fit check. No hardware tests yet.

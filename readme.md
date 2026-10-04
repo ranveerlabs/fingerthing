@@ -4,8 +4,8 @@ i wanted touchid but not a mac
 
 USB fingerprint security key. npm 2FA first, other FIDO2 sites too.
 
-Pico 2 + pico-fido2 first. UART fingerprint sensor next, then a custom RP2350
-board and case. Nothing tested on hardware yet.
+Pico 2 + pico-fido2 for bring-up. The custom RP2350 board and
+[case](case/ReadMe.md) are drafts. Nothing tested on hardware yet.
 
 [build](firmware/Readme.md) · [hardware](hardware/DESIGN.md) · [journal](JOURNAL.md)
 
