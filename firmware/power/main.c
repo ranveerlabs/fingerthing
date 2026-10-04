@@ -15,6 +15,14 @@ void tud_suspend_cb(bool wake) {
 }
 
 int main(void) {
+    gpio_init(8);
+    gpio_put(8, false);
+    gpio_set_dir(8, GPIO_OUT);
+    for (unsigned pin = 4; pin <= 7; ++pin) {
+        if (pin == 6) continue;
+        gpio_init(pin);
+        gpio_disable_pulls(pin);
+    }
     stdio_init_all();
     uint32_t full = clock_get_hz(clk_sys);
     bool slow = false;
@@ -22,6 +30,7 @@ int main(void) {
     clock_dest_bitset_add(&keep, CLK_DEST_SYS_TIMER0);
     clock_dest_bitset_add(&keep, CLK_DEST_REF_TICKS);
     for (;;) {
+        gpio_put(8, tud_ready());
         bool next = suspended;
         if (next != slow) {
             if (next) {
@@ -36,7 +45,10 @@ int main(void) {
         }
         uint32_t irq = save_and_disable_interrupts();
         bool sleep = suspended;
-        if (sleep) low_power_sleep_until_irq(&keep);
+        if (sleep) {
+            gpio_put(8, false);
+            low_power_sleep_until_irq(&keep);
+        }
         restore_interrupts(irq);
         if (!sleep) {
             if (getchar_timeout_us(0) == '?') printf("sys %lu\n", (unsigned long)clock_get_hz(clk_sys));

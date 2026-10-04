@@ -241,3 +241,13 @@ restores the system clock. Signing and enrollment keep SDK 2.1.1.
 The probe builds with warnings treated as errors. No sensor, current or USB
 wake measurements yet. R503 main power is still wired directly to 3.3 V on
 the custom board and needs a switch before whole-board suspend testing.
+
+## session 022 - 2026-10-04
+
+Selected TPS22919DCKR for a sensor power prototype and checked its pin drawing.
+Documented switched power for both R503 supplies and a pull-up to that rail
+on sensor RX. The power probe now drives GP8 only while USB is configured
+and awake. UART and finger-detection pins remain inputs without pulls.
+
+The probe builds with warnings treated as errors. The PCB and signing firmware
+do not include the switch yet. No physical switching or backfeed test yet.

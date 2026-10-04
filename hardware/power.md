@@ -23,3 +23,28 @@ power directly to 3.3 V. Its separate touch supply does not switch that main
 power off. A sensor power switch and backfeed checks are still needed.
 
 Do not order the custom board until these changes and checks are complete.
+
+## sensor switch
+
+Prototype with [TPS22919DCKR](https://www.ti.com/lit/ds/symlink/tps22919.pdf),
+SC-70-6. Checked the datasheet's top-view pin drawing against KiCad's
+TPS22919DCK symbol. This circuit is not integrated into the draft PCB yet.
+
+| Switch pin | Connection |
+| --- | --- |
+| 1 IN | Pico 2 3V3, 1 uF ceramic to ground beside the switch |
+| 2 GND | Common ground |
+| 3 ON | GP8, 100k to ground |
+| 4 NC | Unconnected |
+| 5 QOD | Pin 6 OUT |
+| 6 OUT | R503 pins 1 and 6, 100 nF ceramic to ground |
+
+Power both sensor supplies through the switch. Touch wake is unused. Connect
+sensor TX to GP5 and RX to GP4. Put 10k from sensor RX to the switched supply,
+so RX stays high while the probe leaves GP4 as an input. GP7 may connect to
+finger detection. Check cable pin order first.
+
+The probe disables the switch at startup, USB suspend and disconnect. Measure
+the switched rail voltage and VBUS draw with power off, then check inrush when
+it turns on. Include the sensor's internal capacitance. The existing PCB still
+ties both sensor supplies to 3.3 V, so use an external circuit for this test.
