@@ -1,4 +1,5 @@
 pico_enable_stdio_uart(pico_fido2 0)
+target_sources(pico_fido2 PRIVATE "${FINGERTHING_DIR}/src/bus.c")
 if(FINGERTHING_PCB)
     target_compile_definitions(pico_fido2 PRIVATE FINGERTHING_BUTTON_PIN=6)
 endif()

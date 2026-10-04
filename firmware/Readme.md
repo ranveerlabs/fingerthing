@@ -24,6 +24,11 @@ are disabled. Secure boot is not enabled.
 The signing builds declare 100 mA USB power. Actual draw and USB suspend are
 unverified, see [power](../hardware/power.md).
 
+Approval starts only while USB is configured and awake. Suspend, disconnect or
+reconfiguration cancels pending button and fingerprint approval, including PIN
+fallback. Resuming does not clear that cancellation. These callbacks do not
+put the MCU or sensor into a low power state.
+
 R503: 3.3V and GND, sensor RX to GP4, TX to GP5. UART1, 57600 baud.
 Enrollment: flash `.build/enroll/enroll.uf2` with BOOTSEL, open its USB serial
 port, type `e`, then `y`. Lift and scan the same finger twice. Esc cancels.

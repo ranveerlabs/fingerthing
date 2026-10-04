@@ -12,6 +12,6 @@ check() {
     "$build/$name"
 }
 check r503 firmware/src/r503.c firmware/tests/r503.c
-check finger firmware/src/finger.c firmware/tests/finger.c
+check finger firmware/src/finger.c firmware/src/bus.c firmware/tests/finger.c
 check enroll firmware/src/enroll.c firmware/tests/enroll.c
 check uart firmware/src/r503.c firmware/src/uart.c firmware/tests/uart.c

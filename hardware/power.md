@@ -13,8 +13,8 @@ capacitors beside the input and output. Check inrush and VBUS dip at plug-in,
 as well as steady current and regulator temperature in the closed case.
 
 [TinyUSB's suspend callback](https://github.com/hathach/tinyusb/blob/0.18.0/src/device/usbd.h)
-requires less than 2.5 mA average bus draw within 7 ms. There is no suspend
-callback in this firmware yet. Implement suspend and resume handling, then
-measure the whole board.
+requires less than 2.5 mA average bus draw within 7 ms. The callback cancels
+pending approval but does not reduce draw. MCU and sensor power management,
+resume handling and whole-board measurements remain.
 
 Do not order the custom board until these changes and checks are complete.

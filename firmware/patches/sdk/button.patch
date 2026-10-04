@@ -1,6 +1,6 @@
 --- a/src/main.c
 +++ b/src/main.c
-@@ -197,41 +197,28 @@
+@@ -197,41 +197,29 @@
  uint32_t button_pressed_time = 0;
  uint8_t button_press = 0;
  bool wait_button() {
@@ -16,6 +16,7 @@
 -    }
 -    uint32_t start_button = board_millis();
 -    bool timeout = false;
++    if (!tud_ready()) return true;
 +    uint32_t start = board_millis();
 +    uint32_t mode = led_get_mode();
 +    bool ready = !picok_board_button_read();
@@ -33,29 +34,28 @@
 -        if (start_button + button_timeout < board_millis()) { /* timeout */
 -            timeout = true;
 -            break;
-+        bool down = picok_board_button_read();
-+        if (!down) {
-+            if (pressed) {
-+                timeout = false;
-+                break;
-+            }
-+            ready = true;
-+        } else if (ready) {
-+            pressed = true;
-         }
-     }
+-        }
+-    }
 -    if (!timeout) {
 -        while (picok_board_button_read() == true && cancel_button == false) {
 -            execute_tasks();
 -            //sleep_ms(10);
 -            if (start_button + 15000 < board_millis()) { /* timeout */
 -                timeout = true;
--                break;
--            }
--        }
--    }
++        bool down = picok_board_button_read();
++        if (!down) {
++            if (pressed) {
++                timeout = false;
+                 break;
+             }
++            ready = true;
++        } else if (ready) {
++            pressed = true;
+         }
+     }
 -    led_set_mode(led_mode);
 +    led_set_mode(mode);
      req_button_pending = false;
-     return timeout || cancel_button;
+-    return timeout || cancel_button;
++    return timeout || cancel_button || !tud_ready();
  }

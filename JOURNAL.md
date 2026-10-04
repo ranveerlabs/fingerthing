@@ -216,3 +216,17 @@ ERC, DRC and schematic parity pass with zero unconnected items. Rendered the
 schematic and top copper. Other footprints, pad positions and nets are unchanged.
 Updated the BOM. USB suspend, inrush, current and temperature measurements
 remain. No hardware tests yet.
+
+## session 020 - 2026-10-04
+
+Added USB callbacks that cancel pending approval on suspend, disconnect and
+reconfiguration. Approval rejects an unavailable USB connection at entry and
+return. A quick resume or reconnect does not clear an active cancellation.
+
+Host tests cover cancellation during button release, pending PIN fallback and
+a successful sensor match. Checked both PIN states and timer wrap. The SDK
+patches apply to clean pinned sources and validate on repeated builds.
+Button, sensor and custom-board builds pass with the host tests.
+
+These callbacks do not reduce power. MCU and sensor sleep, resume handling
+and physical suspend measurements remain.
