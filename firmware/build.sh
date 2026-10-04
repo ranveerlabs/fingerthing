@@ -3,11 +3,13 @@ set -euo pipefail
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 root=$PWD
 mode=${1:-button}
+pcb=OFF
 case "$mode" in
     button) sensor=OFF; dir=pico2 ;;
     sensor) sensor=ON; dir=sensor ;;
+    pcb) sensor=ON; pcb=ON; dir=pcb ;;
     enroll) dir=enroll ;;
-    *) echo "Usage: $0 [button|sensor|enroll]" >&2; exit 1 ;;
+    *) echo "Usage: $0 [button|sensor|pcb|enroll]" >&2; exit 1 ;;
 esac
 mkdir -p .build
 
@@ -64,9 +66,11 @@ done
 cmake -S .build/pico-fido2 -B ".build/$dir" \
     -DPICO_SDK_PATH="$root/.build/pico-sdk" -DPICO_BOARD=pico2 \
     -DFINGERTHING_DIR="$root/firmware" -DFINGERTHING_SENSOR="$sensor" \
+    -DFINGERTHING_PCB="$pcb" \
     -DENABLE_OATH_APP=OFF -DENABLE_OTP_APP=OFF -DDEBUG_APDU=0 \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"
 python3 firmware/tests/button.py
+python3 firmware/tests/gpio.py
 python3 firmware/tests/presence.py
 bash firmware/test.sh

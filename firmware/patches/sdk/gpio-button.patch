@@ -1,0 +1,32 @@
+--- a/src/main.c
++++ b/src/main.c
+@@ -185,7 +185,29 @@
+     return button_state;
+ }
+ bool picok_board_button_read(void) {
++#ifdef FINGERTHING_BUTTON_PIN
++    static bool init, raw, down;
++    static uint32_t since;
++    uint32_t now = board_millis();
++    if (!init) {
++        gpio_init(FINGERTHING_BUTTON_PIN);
++        gpio_set_dir(FINGERTHING_BUTTON_PIN, GPIO_IN);
++        gpio_pull_up(FINGERTHING_BUTTON_PIN);
++        raw = down = !gpio_get(FINGERTHING_BUTTON_PIN);
++        since = now;
++        init = true;
++        return down;
++    }
++    bool next = !gpio_get(FINGERTHING_BUTTON_PIN);
++    if (next != raw) {
++        raw = next;
++        since = now;
++    }
++    if ((uint32_t)(now - since) >= 20) down = raw;
++    return down;
++#else
+   return picok_get_bootsel_button();
++#endif
+ }
+ #else
+ bool picok_board_button_read(void) {

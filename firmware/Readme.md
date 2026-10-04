@@ -6,10 +6,13 @@ Pinned sources. Git, CMake, Make, ARM GCC with Newlib, native C compiler, Python
 ```sh
 bash firmware/build.sh
 bash firmware/build.sh sensor
+bash firmware/build.sh pcb
 bash firmware/build.sh enroll
 ```
 
 UF2: `.build/pico2/pico_fido2.uf2` or `.build/sensor/pico_fido2.uf2`.
+The custom board build is `.build/pcb/pico_fido2.uf2`. It uses an active-low
+button on GP6 with a 20 ms debounce. BOOTSEL stays available for recovery.
 BOOTSEL while plugging in, then copy the UF2. Use a dedicated development board:
 upstream writes and locks OTP keys on first boot. Reflashing cannot undo this.
 

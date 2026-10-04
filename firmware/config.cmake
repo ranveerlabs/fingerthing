@@ -1,4 +1,7 @@
 pico_enable_stdio_uart(pico_fido2 0)
+if(FINGERTHING_PCB)
+    target_compile_definitions(pico_fido2 PRIVATE FINGERTHING_BUTTON_PIN=6)
+endif()
 if(FINGERTHING_SENSOR)
     target_sources(pico_fido2 PRIVATE
         "${FINGERTHING_DIR}/src/r503.c"

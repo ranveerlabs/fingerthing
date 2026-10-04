@@ -19,6 +19,7 @@ someone injecting a fake match on the UART wires.
 - USB-C, separate 5.1k CC pull-downs, ESD protection, 90 ohm differential routing.
 - 3.3 V supply plus the RP2350 core regulator circuit and reference decoupling.
 - Sensor connector, BOOTSEL, status LED and SWD pads.
+- Separate presence button on GP6, pulled up to 3.3 V through 10k.
 - Four layers preferred. Assembly service for the QFN.
 
 Select flash and regulator part numbers after checking the reference BOM and
@@ -31,6 +32,8 @@ bring-up board. Secure-boot provisioning waits until updates and recovery work.
 
 ## references
 
+- [immurok hardware](https://github.com/immurok/hardware), reference for sensor clearance,
+  separate service controls and labeled pads. Its USB-C is charging-only.
 - [RP2350 design files and hardware guide](https://pip.raspberrypi.com/categories/1214-rp2350)
 - [RP2350 security features](https://pip-assets.raspberrypi.com/categories/1260-security/documents/RP-009377-WP-1-Understanding%20RP2350_s%20security%20features.pdf)
 - [npm security-key setup](https://docs.npmjs.com/configuring-two-factor-authentication/)

@@ -96,3 +96,14 @@ Mounting-hole drills and positions are unchanged.
 ERC and DRC pass with the project rules, including board/schematic parity.
 USB-C, the sensor connector and the final layout are still pending. This is a
 reference base, not an orderable fingerthing board.
+
+## session 009 - 2026-10-04
+
+Read immurok's hardware notes and board renders. Use sensor clearance and labeled
+service pads as layout references. Keep USB FIDO2 for npm. Immurok uses Bluetooth
+with companion apps and its USB-C connector only supplies charging power.
+
+Added the custom board build with a separate presence button on GP6 and 20 ms
+debounce. BOOTSEL remains the recovery button. Host tests cover held startup,
+contact bounce and timer wrap. Custom board and Pico 2 sensor builds pass.
+Picotool verifies the custom image hash. No hardware test yet.
