@@ -18,17 +18,17 @@ pending approval but does not reduce draw. MCU and sensor power management,
 resume handling and whole-board measurements remain.
 
 The [power probe](../firmware/power/Readme.md) tests MCU clock reduction on a
-Pico 2 with the sensor disconnected. The board currently connects R503 main
-power directly to 3.3 V. Its separate touch supply does not switch that main
-power off. A sensor power switch and backfeed checks are still needed.
+Pico 2, then sensor switching with an external circuit. The draft PCB now
+switches both R503 supplies with GP8. Signing firmware still needs that control.
+Backfeed checks and physical power measurements remain.
 
 Do not order the custom board until these changes and checks are complete.
 
 ## sensor switch
 
-Prototype with [TPS22919DCKR](https://www.ti.com/lit/ds/symlink/tps22919.pdf),
-SC-70-6. Checked the datasheet's top-view pin drawing against KiCad's
-TPS22919DCK symbol. This circuit is not integrated into the draft PCB yet.
+U5 is [TPS22919DCKR](https://www.ti.com/lit/ds/symlink/tps22919.pdf), SC-70-6.
+Checked the datasheet's top-view pin drawing. The same connections apply to
+an external prototype circuit on Pico 2.
 
 | Switch pin | Connection |
 | --- | --- |
@@ -46,5 +46,5 @@ finger detection. Check cable pin order first.
 
 The probe disables the switch at startup, USB suspend and disconnect. Measure
 the switched rail voltage and VBUS draw with power off, then check inrush when
-it turns on. Include the sensor's internal capacitance. The existing PCB still
-ties both sensor supplies to 3.3 V, so use an external circuit for this test.
+it turns on. Include the sensor's internal capacitance. Keep the signing image
+off the revised PCB until it controls GP8 and releases the UART pins at power-off.

@@ -251,3 +251,18 @@ and awake. UART and finger-detection pins remain inputs without pulls.
 
 The probe builds with warnings treated as errors. The PCB and signing firmware
 do not include the switch yet. No physical switching or backfeed test yet.
+
+## session 023 - 2026-10-04
+
+Added TPS22919DCKR to the PCB. GP8 controls both sensor supplies. Added input
+and output bypass capacitors, an ON pull-down and a sensor RX pull-up to the
+switched rail. QOD connects to OUT as shown in TI's datasheet. The local symbol
+uses a passive QOD pin type for that connection.
+
+Moved the new circuit away from the flash routing. The UART pull-up branch
+uses In1.Cu below the USB section. ERC, DRC and schematic parity pass with
+zero unconnected items. Rendered the copper and schematic. The BOM now lists
+47 fitted components.
+
+Signing firmware still needs GP8 control and UART release before running on
+the revised board. Switching, backfeed, inrush and suspend remain unmeasured.

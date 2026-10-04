@@ -9,7 +9,7 @@
 The final board uses USB-C. Nothing ordered yet.
 
 The [board BOM](../hardware/pcb/bom.csv) comes from the schematic. It lists
-42 fitted components with manufacturer part numbers. R1 is DNP and the four
+47 fitted components with manufacturer part numbers. R1 is DNP and the four
 mounting holes are excluded. Assembly stock has not been confirmed.
 
 The board uses AP2112K-3.3TRG1 for 3.3 V. USB suspend and current measurements

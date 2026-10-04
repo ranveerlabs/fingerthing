@@ -21,9 +21,18 @@ regulator routing come from Raspberry Pi's RP2350A R4/S1 reference. C20 adds a
 R503 cable fit and the enclosure are not confirmed. Do not order this yet.
 `bash hardware/check.sh` runs ERC and DRC with KiCad's standard libraries installed.
 
-[BOM](bom.csv): 42 fitted components. R1 is DNP. U2 is AP2112K-3.3TRG1,
+[BOM](bom.csv): 47 fitted components. R1 is DNP. U2 is AP2112K-3.3TRG1,
 with C1 and C5 beside its input and output. Suspend handling and current
 measurements remain, see [power](../power.md).
+
+U5 is TPS22919DCKR. GP8 switches both R503 supplies. C21 bypasses the input,
+C22 bypasses the output, R15 pulls ON down and R16 pulls sensor RX up to the
+switched rail. Signing firmware still needs this control before board use.
+The UART pull-up branch uses In1.Cu below the USB routing.
+
+The [local switch symbol](fingerthing.kicad_sym) comes from KiCad's
+[Power_Management library](https://gitlab.com/kicad/libraries/kicad-symbols/-/blob/master/Power_Management.kicad_sym).
+QOD has a passive pin type because TI specifies tying it to OUT. [license](LICENSE.kicad)
 
 [reference](https://datasheets.raspberrypi.com/rp2350/Minimal-KiCAD.zip) · [license](LICENSE.raspberrypi)
 

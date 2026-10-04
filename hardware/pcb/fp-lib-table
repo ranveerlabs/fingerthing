@@ -49,4 +49,11 @@
 		(options "")
 		(descr "")
 	)
+	(lib
+		(name "Capacitor_SMD")
+		(type "KiCad")
+		(uri "${KICAD10_FOOTPRINT_DIR}/Capacitor_SMD.pretty")
+		(options "")
+		(descr "")
+	)
 )

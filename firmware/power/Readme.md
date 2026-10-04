@@ -15,7 +15,7 @@ reference, turns off PLL_SYS and sleeps until an interrupt. USB clocks and the
 timer remain enabled. Resume restores the system clock.
 
 GP8 starts low and goes high only while USB is configured and awake. It drives
-the ON input of the [prototype sensor switch](../../hardware/power.md#sensor-switch),
+the ON input of the [sensor switch](../../hardware/power.md#sensor-switch),
 not the sensor supply. GP4, GP5 and GP7 stay inputs with no pulls. This image
 sends no UART commands.
 
@@ -30,4 +30,4 @@ not prove its USB port suspended this device.
 
 The SDK serial descriptor declares 250 mA. This is a budget, not measured draw.
 The image builds with warnings treated as errors. No physical power or wake
-test yet. The switch is not integrated into the draft PCB or signing firmware.
+test yet. The switch is in the draft PCB. Signing firmware still needs its control.
