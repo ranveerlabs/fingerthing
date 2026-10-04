@@ -118,3 +118,13 @@ underneath. Kept the reference flash, crystal and core regulator routing.
 ERC passes and board/schematic parity has no issues. DRC still reports 88
 unconnected items and four USB connector hole-clearance violations. The stackup
 is preliminary. Routing, USB impedance, sensor cable fit and physical tests remain.
+
+## session 011 - 2026-10-04
+
+Changed USB-C to JAE DX07S016JA1R1500. The GCT footprint matched its drawing but
+left 0.1944 mm between its locator holes and ground pads. Kept the 0.25 mm hole
+clearance rule. The local JAE footprint grounds both shell reinforcement pads.
+
+Added ground planes, a 3.3 V plane and supply vias. Removed floating copper.
+ERC and schematic parity pass. DRC has 24 unconnected items and no other
+violations. USB, sensor, button, LED and SWD routing remain. No hardware test yet.

@@ -21136,7 +21136,7 @@
 				)
 			)
 		)
-		(property "Value" "USB4105-GF-A"
+		(property "Value" "DX07S016JA1R1500"
 			(at 334.01 25.4 0)
 			(effects
 				(font
@@ -21144,7 +21144,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal"
+		(property "Footprint" "fingerthing:usb-c"
 			(at 330.2 43.18 0)
 			(effects
 				(font
