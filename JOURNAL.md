@@ -300,3 +300,20 @@ enrollment, serial flood, timer wrap and a fresh retry. Queued input draining
 is bounded at 128 bytes and rejects an overfull prompt. Added a case for cancellation after
 storage. Failure after a store command does not prove slot 0 stayed unchanged.
 No hardware USB tests yet.
+
+## session 026 - 2026-10-04
+
+Found that upstream flash writes continued after five failed multicore
+lockout attempts. Added a helper that stops the device if pausing or resuming
+the other core fails. Added interrupt masking to the erase-only path, matching
+the existing erase/program path.
+
+Host tests compile the actual patched flash code with mocked hardware. They
+cover failed start and end handshakes, success on the fifth attempt, interrupt
+masking, preservation of a prior IRQ mask and pending-page state. No flash
+erase runs without an acknowledged
+pause in those tests. Writes completed before a failed resume cannot be undone.
+MCU suspend and physical flash tests remain.
+
+Button, sensor and PCB signing builds pass with the host tests. The patch
+applies to the clean pinned SDK file and validates on repeated builds.

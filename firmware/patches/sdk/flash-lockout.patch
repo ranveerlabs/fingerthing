@@ -1,0 +1,54 @@
+--- a/src/fs/low_flash.c
++++ b/src/fs/low_flash.c
+@@ -102,6 +102,16 @@
+ bool flash_available = false;
+ 
+ 
++#if defined(PICO_PLATFORM) || defined(ESP_PLATFORM)
++static void flash_lockout(bool start) {
++    for (int i = 0; i < FLASH_LOCKOUT_RETRIES; ++i) {
++        if (start ? multicore_lockout_start_timeout_us(1000) :
++            multicore_lockout_end_timeout_us(1000)) return;
++    }
++    abort();
++}
++#endif
++
+ //this function has to be called from the core 0
+ void do_flash() {
+     if (mutex_try_enter(&mtx_flash, NULL) == true) {
+@@ -111,15 +121,13 @@
+                 if (flash_pages[r].ready == true) {
+ #if defined(PICO_PLATFORM) || defined(ESP_PLATFORM)
+                     //printf("WRITTING %X\n",flash_pages[r].address-XIP_BASE);
+-                    for (int retries = 0; retries < FLASH_LOCKOUT_RETRIES && multicore_lockout_start_timeout_us(1000) == false; retries++) {
+-                    }
++                    flash_lockout(true);
+                     //printf("WRITTING %X\n",flash_pages[r].address-XIP_BASE);
+                     uint32_t ints = save_and_disable_interrupts();
+                     flash_range_erase(flash_pages[r].address - XIP_BASE, FLASH_SECTOR_SIZE);
+                     flash_range_program(flash_pages[r].address - XIP_BASE, flash_pages[r].page, FLASH_SECTOR_SIZE);
+                     restore_interrupts(ints);
+-                    for (int retries = 0; retries < FLASH_LOCKOUT_RETRIES && multicore_lockout_end_timeout_us(1000) == false; retries++) {
+-                    }
++                    flash_lockout(false);
+                     //printf("WRITEN %X !\n",flash_pages[r].address);
+ #else
+                     memcpy(map + flash_pages[r].address, flash_pages[r].page, FLASH_SECTOR_SIZE);
+@@ -129,12 +137,12 @@
+                 }
+                 else if (flash_pages[r].erase == true) {
+ #if defined(PICO_PLATFORM) || defined(ESP_PLATFORM)
+-                    for (int retries = 0; retries < FLASH_LOCKOUT_RETRIES && multicore_lockout_start_timeout_us(1000) == false; retries++) {
+-                    }
++                    flash_lockout(true);
+                     //printf("WRITTING\n");
++                    uint32_t ints = save_and_disable_interrupts();
+                     flash_range_erase(flash_pages[r].address - XIP_BASE, flash_pages[r].page_size ? ((int) (flash_pages[r].page_size / FLASH_SECTOR_SIZE)) * FLASH_SECTOR_SIZE : FLASH_SECTOR_SIZE);
+-                    for (int retries = 0; retries < FLASH_LOCKOUT_RETRIES && multicore_lockout_end_timeout_us(1000) == false; retries++) {
+-                    }
++                    restore_interrupts(ints);
++                    flash_lockout(false);
+ #else
+                     memset(map + flash_pages[r].address, 0, FLASH_SECTOR_SIZE);
+ #endif

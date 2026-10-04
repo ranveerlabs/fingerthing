@@ -21,6 +21,11 @@ with cancellation and PIN fallback available during startup.
 BOOTSEL while plugging in, then copy the UF2. Use a dedicated development board:
 upstream writes and locks OTP keys on first boot. Reflashing cannot undo this.
 
+Flash writes stop the device if the other core cannot be paused or resumed
+after five attempts. Both erase paths mask interrupts. This avoids proceeding
+after a failed handshake. Reset is required after that failure, and writes
+already completed cannot be undone.
+
 Button: fresh press and release. Sensor: fresh match in slot 0, one attempt per
 request. Button fallback requires a verified PIN for that request. Both time out
 after 30 seconds. Fingerprint approval never sets UV. OTP, OATH and debug output

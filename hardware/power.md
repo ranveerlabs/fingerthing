@@ -17,6 +17,10 @@ requires less than 2.5 mA average bus draw within 7 ms. The callback cancels
 pending approval. PCB request cleanup releases UART and cuts sensor power.
 MCU sleep, transition timing and whole-board measurements remain.
 
+Signing runs on the second core and flash writes run on the USB core. Sleep
+must wait for pending work and preserve the flash handshake. The signing
+patch stops the device on a failed handshake. This is not suspend support.
+
 The [power probe](../firmware/power/Readme.md) tests MCU clock reduction on a
 Pico 2, then sensor switching with an external circuit. The draft PCB now
 switches both R503 supplies with GP8. The `pcb` signing image powers the sensor

@@ -86,4 +86,5 @@ cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"
 python3 firmware/tests/button.py
 python3 firmware/tests/gpio.py
 python3 firmware/tests/presence.py
+python3 firmware/tests/flash.py
 bash firmware/test.sh
