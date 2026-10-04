@@ -230,3 +230,14 @@ Button, sensor and custom-board builds pass with the host tests.
 
 These callbacks do not reduce power. MCU and sensor sleep, resume handling
 and physical suspend measurements remain.
+
+## session 021 - 2026-10-04
+
+Added a separate USB serial power probe for Pico 2, using pinned SDK 2.3.1.
+It switches the system clock to the crystal reference and disables PLL_SYS
+during USB suspend. USB and timer clocks remain enabled for wake-up. Resume
+restores the system clock. Signing and enrollment keep SDK 2.1.1.
+
+The probe builds with warnings treated as errors. No sensor, current or USB
+wake measurements yet. R503 main power is still wired directly to 3.3 V on
+the custom board and needs a switch before whole-board suspend testing.

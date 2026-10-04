@@ -17,4 +17,9 @@ requires less than 2.5 mA average bus draw within 7 ms. The callback cancels
 pending approval but does not reduce draw. MCU and sensor power management,
 resume handling and whole-board measurements remain.
 
+The [power probe](../firmware/power/Readme.md) tests MCU clock reduction on a
+Pico 2 with the sensor disconnected. The board currently connects R503 main
+power directly to 3.3 V. Its separate touch supply does not switch that main
+power off. A sensor power switch and backfeed checks are still needed.
+
 Do not order the custom board until these changes and checks are complete.

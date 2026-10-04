@@ -9,7 +9,8 @@ case "$mode" in
     sensor) sensor=ON; dir=sensor ;;
     pcb) sensor=ON; pcb=ON; dir=pcb ;;
     enroll) dir=enroll ;;
-    *) echo "Usage: $0 [button|sensor|pcb|enroll]" >&2; exit 1 ;;
+    power) dir=power ;;
+    *) echo "Usage: $0 [button|sensor|pcb|enroll|power]" >&2; exit 1 ;;
 esac
 mkdir -p .build
 
@@ -27,6 +28,15 @@ get() {
     }
     git -C "$dir" submodule update --init --recursive --depth 1
 }
+
+if [[ $mode == power ]]; then
+    get .build/pico-sdk-2.3.1 https://github.com/raspberrypi/pico-sdk.git \
+        079c6f39023649b154152db30f1d781e884879bc
+    cmake -S firmware/power -B .build/power \
+        -DPICO_SDK_PATH="$root/.build/pico-sdk-2.3.1" -DPICO_BOARD=pico2
+    cmake --build .build/power --parallel "${BUILD_JOBS:-4}"
+    exit
+fi
 
 get .build/pico-sdk https://github.com/raspberrypi/pico-sdk.git \
     bddd20f928ce76142793bef434d4f75f4af6e433

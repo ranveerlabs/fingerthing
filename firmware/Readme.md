@@ -24,6 +24,8 @@ are disabled. Secure boot is not enabled.
 The signing builds declare 100 mA USB power. Actual draw and USB suspend are
 unverified, see [power](../hardware/power.md).
 
+The separate [power probe](power/Readme.md) builds with `bash firmware/build.sh power`.
+
 Approval starts only while USB is configured and awake. Suspend, disconnect or
 reconfiguration cancels pending button and fingerprint approval, including PIN
 fallback. Resuming does not clear that cancellation. These callbacks do not
