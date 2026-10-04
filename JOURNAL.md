@@ -128,3 +128,10 @@ clearance rule. The local JAE footprint grounds both shell reinforcement pads.
 Added ground planes, a 3.3 V plane and supply vias. Removed floating copper.
 ERC and schematic parity pass. DRC has 24 unconnected items and no other
 violations. USB, sensor, button, LED and SWD routing remain. No hardware test yet.
+
+## session 012 - 2026-10-04
+
+Routed the GP6 presence button, its pull-up and the GPIO25 status LED. Moved one
+3.3 V via to leave room for the LED signal. ERC and schematic parity pass.
+DRC has 19 unconnected items and no other violations. USB, sensor and SWD
+routing remain. The board is still a draft.
