@@ -1,3 +1,4 @@
 # hardware
 
-[Build plan](DESIGN.md). Pico 2 first. No custom PCB yet.
+[Build plan](DESIGN.md) · [KiCad draft](pcb/Readme.md)
+Pico 2 bring-up first. The custom board is not ready to order.

@@ -85,3 +85,14 @@ before storing credentials.
 Shared the UART transport and removed the unused delete command. Host tests cover
 RX floods, malformed lengths, late replies, cancellation and timer wrap. Enrollment
 and signing builds pass. Nothing tested on hardware yet.
+
+## session 008 - 2026-10-04
+
+Started the KiCad project from Raspberry Pi's RP2350A R4/S1 reference. Included
+local symbols, footprints and embedded models, with the original MIT license.
+Fixed the regulator tab's ERC pin type and declared the two filtered supply nets.
+Mounting-hole drills and positions are unchanged.
+
+ERC and DRC pass with the project rules, including board/schematic parity.
+USB-C, the sensor connector and the final layout are still pending. This is a
+reference base, not an orderable fingerthing board.

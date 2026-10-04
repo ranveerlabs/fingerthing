@@ -1,0 +1,5 @@
+(sym_lib_table
+ (version 7)
+ (lib (name "fingerthing")(type "KiCad")(uri "${KIPRJMOD}/fingerthing.kicad_sym")(options "")(descr "RP2350A reference symbols"))
+ (lib (name "power")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/power.kicad_sym")(options "")(descr ""))
+)
