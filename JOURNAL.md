@@ -135,3 +135,12 @@ Routed the GP6 presence button, its pull-up and the GPIO25 status LED. Moved one
 3.3 V via to leave room for the LED signal. ERC and schematic parity pass.
 DRC has 19 unconnected items and no other violations. USB, sensor and SWD
 routing remain. The board is still a draft.
+
+## session 013 - 2026-10-04
+
+Routed GP4, GP5 and GP7 to the sensor header and SWD to the rear connector.
+The sensor signals use the power layer to pass the retained core regulator
+routing. Added a supply bridge where the routes split the 3.3 V fill.
+
+ERC and schematic parity pass. DRC has 14 unconnected USB items and no other
+violations. USB routing and impedance, sensor cable fit and hardware tests remain.
