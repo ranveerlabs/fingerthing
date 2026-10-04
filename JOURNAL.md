@@ -152,3 +152,17 @@ CC1 and CC2 to their separate 5.1k pull-downs. Power tracks are 0.5 mm wide.
 
 ERC and schematic parity pass. DRC has eight unconnected USB data items and
 no other violations. The data pair and final impedance still need work.
+
+## session 015 - 2026-10-04
+
+Routed USB through the ESD protector and turned it toward the MCU. Joined both
+connector orientations and shortened the protector's ground connection.
+
+JLCPCB's calculator returned 0.2347 mm for a 90 ohm coplanar differential pair
+on JLC04161H-7628, with 0.15 mm spacing and 0.25 mm ground clearance. Used
+0.235 mm and updated the copper and dielectric thicknesses to that stackup.
+The connector joins and ESD fan-out are not fully coupled.
+
+ERC, DRC and board/schematic parity pass with zero unconnected items. No
+hardware test yet. Final fabrication review, sensor cable fit and enclosure
+work remain.
