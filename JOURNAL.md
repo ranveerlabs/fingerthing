@@ -74,3 +74,14 @@ assertion to check each request, and removed cached verification from registrati
 Fingerprint matching does not set UV. Disabled unused OTP, OATH and debug output.
 Both Pico 2 builds pass. Picotool verifies the sensor image hash.
 Enrollment and hardware tests are still pending. No custom PCB yet.
+
+## session 007 - 2026-10-04
+
+Added a separate USB serial enrollment image. Explicit confirmation, two fresh
+captures, slot 0 only. Capture or merge failure does not request a template write.
+The signing image has no enrollment command. Enrollment is for development,
+before storing credentials.
+
+Shared the UART transport and removed the unused delete command. Host tests cover
+RX floods, malformed lengths, late replies, cancellation and timer wrap. Enrollment
+and signing builds pass. Nothing tested on hardware yet.

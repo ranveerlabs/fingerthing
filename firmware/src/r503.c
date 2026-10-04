@@ -77,8 +77,3 @@ int r503_store(r503 *s) {
     if (ret) return ret;
     return r503_cmd(s, save, sizeof(save), NULL, 0);
 }
-
-int r503_delete(r503 *s) {
-    const uint8_t cmd[] = {0x0c, 0, 0, 0, 1};
-    return r503_cmd(s, cmd, sizeof(cmd), NULL, 0);
-}

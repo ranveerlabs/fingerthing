@@ -6,6 +6,7 @@ Pinned sources. Git, CMake, Make, ARM GCC with Newlib, native C compiler, Python
 ```sh
 bash firmware/build.sh
 bash firmware/build.sh sensor
+bash firmware/build.sh enroll
 ```
 
 UF2: `.build/pico2/pico_fido2.uf2` or `.build/sensor/pico_fido2.uf2`.
@@ -18,6 +19,11 @@ after 30 seconds. Fingerprint approval never sets UV. OTP, OATH and debug output
 are disabled. Secure boot is not enabled.
 
 R503: 3.3V and GND, sensor RX to GP4, TX to GP5. UART1, 57600 baud.
-Enrollment is not implemented yet. UART matches can be spoofed.
+Enrollment: flash `.build/enroll/enroll.uf2` with BOOTSEL, open its USB serial
+port, type `e`, then `y`. Lift and scan the same finger twice. Esc cancels.
+This development image replaces slot 0 and has a 60-second timeout. Flash the
+sensor firmware afterward. Use it before storing credentials. Enrollment has no FIDO code. Signing firmware has no enrollment command.
+
+UART matches can be spoofed. Enrollment has not been tested on hardware.
 
 Builds and host tests pass. No hardware, npm or FreeBSD test yet.

@@ -6,7 +6,8 @@ mode=${1:-button}
 case "$mode" in
     button) sensor=OFF; dir=pico2 ;;
     sensor) sensor=ON; dir=sensor ;;
-    *) echo "Usage: $0 [button|sensor]" >&2; exit 1 ;;
+    enroll) dir=enroll ;;
+    *) echo "Usage: $0 [button|sensor|enroll]" >&2; exit 1 ;;
 esac
 mkdir -p .build
 
@@ -25,10 +26,17 @@ get() {
     git -C "$dir" submodule update --init --recursive --depth 1
 }
 
-get .build/pico-fido2 https://github.com/librekeys/pico-fido2.git \
-    391252e5e84b475add357ea0d3e5c79b7e42ace8
 get .build/pico-sdk https://github.com/raspberrypi/pico-sdk.git \
     bddd20f928ce76142793bef434d4f75f4af6e433
+if [[ $mode == enroll ]]; then
+    cmake -S firmware/enroll -B .build/enroll \
+        -DPICO_SDK_PATH="$root/.build/pico-sdk" -DPICO_BOARD=pico2
+    cmake --build .build/enroll --parallel "${BUILD_JOBS:-4}"
+    bash firmware/test.sh
+    exit
+fi
+get .build/pico-fido2 https://github.com/librekeys/pico-fido2.git \
+    391252e5e84b475add357ea0d3e5c79b7e42ace8
 
 sdk="$root/.build/pico-fido2/pico-keys-sdk"
 rev=e185d7fd85499c8ce5ca2a54f5cf8fe7dbe3f8df

@@ -15,6 +15,5 @@ int r503_image(r503 *s);
 int r503_make(r503 *s, uint8_t slot);
 int r503_match(r503 *s);
 int r503_store(r503 *s);
-int r503_delete(r503 *s);
 
 #endif
