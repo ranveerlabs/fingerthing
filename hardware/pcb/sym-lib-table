@@ -2,4 +2,8 @@
  (version 7)
  (lib (name "fingerthing")(type "KiCad")(uri "${KIPRJMOD}/fingerthing.kicad_sym")(options "")(descr "RP2350A reference symbols"))
  (lib (name "power")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/power.kicad_sym")(options "")(descr ""))
+ (lib (name "Connector")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Connector.kicad_sym")(options "")(descr ""))
+ (lib (name "Connector_Generic")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_sym")(options "")(descr ""))
+ (lib (name "Device")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Device.kicad_sym")(options "")(descr ""))
+ (lib (name "Power_Protection")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Power_Protection.kicad_sym")(options "")(descr ""))
 )

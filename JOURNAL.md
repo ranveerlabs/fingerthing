@@ -107,3 +107,14 @@ Added the custom board build with a separate presence button on GP6 and 20 ms
 debounce. BOOTSEL remains the recovery button. Host tests cover held startup,
 contact bounce and timer wrap. Custom board and Pico 2 sensor builds pass.
 Picotool verifies the custom image hash. No hardware test yet.
+
+## session 010 - 2026-10-04
+
+Replaced the development headers and micro USB with USB-C, CC pull-downs, ESD
+protection, a sensor header, GP6 button and status LED. The draft is 34 x 48 mm
+with rounded corners and four copper layers. Sensor and SWD connections are
+underneath. Kept the reference flash, crystal and core regulator routing.
+
+ERC passes and board/schematic parity has no issues. DRC still reports 88
+unconnected items and four USB connector hole-clearance violations. The stackup
+is preliminary. Routing, USB impedance, sensor cable fit and physical tests remain.
