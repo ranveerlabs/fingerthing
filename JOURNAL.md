@@ -166,3 +166,14 @@ The connector joins and ESD fan-out are not fully coupled.
 ERC, DRC and board/schematic parity pass with zero unconnected items. No
 hardware test yet. Final fabrication review, sensor cable fit and enclosure
 work remain.
+
+## session 016 - 2026-10-04
+
+Added C20, a 100 nF VBUS bypass beside the ESD protector's supply via, following
+ST's layout example. The capacitor sits underneath and has a nearby ground via.
+ERC, DRC and schematic parity pass with zero unconnected items.
+
+Reviewed GROW's 2019.6 R503 manual. The board's six-pin mapping matches its
+3.3 V variant. Documented the 28 mm diameter, M25 thread and 19 mm height.
+The manual names an MX1.0 sensor plug while J2 uses JST SH. The adapter cable
+and supplied sensor still need physical verification.

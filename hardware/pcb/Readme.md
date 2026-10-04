@@ -15,7 +15,8 @@ not fully coupled. Final fabrication review and hardware testing remain.
 
 J1 is JAE DX07S016JA1R1500. The local KiCad footprint grounds both shell
 reinforcement pads and removes the edge silk markers. Flash, crystal and core
-regulator routing come from Raspberry Pi's RP2350A R4/S1 reference.
+regulator routing come from Raspberry Pi's RP2350A R4/S1 reference. C20 adds a
+100 nF VBUS bypass beside the ESD protector's supply via.
 
 R503 cable fit and the enclosure are not confirmed. Do not order this yet.
 `bash hardware/check.sh` runs ERC and DRC with KiCad's standard libraries installed.

@@ -5,8 +5,8 @@ button before adding a fingerprint sensor. npm is the first real-service test.
 
 ## sensor
 
-R503 is the first candidate. Match on the module, send the result over UART.
-Confirm the exact supplier's voltage, pinout and protocol before ordering.
+Use the 3.3 V R503 variant in [the sensor notes](sensor.md). Match on the module,
+send the result over UART. Confirm the supplier's variant and cable before ordering.
 
 A fresh match can gate user presence. It must not set FIDO's UV flag by itself.
 Keep the upstream PIN path. Fingerprint UV needs enrollment authorization,
