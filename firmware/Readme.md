@@ -21,6 +21,9 @@ request. Button fallback requires a verified PIN for that request. Both time out
 after 30 seconds. Fingerprint approval never sets UV. OTP, OATH and debug output
 are disabled. Secure boot is not enabled.
 
+The signing builds declare 100 mA USB power. Actual draw and USB suspend are
+unverified, see [power](../hardware/power.md).
+
 R503: 3.3V and GND, sensor RX to GP4, TX to GP5. UART1, 57600 baud.
 Enrollment: flash `.build/enroll/enroll.uf2` with BOOTSEL, open its USB serial
 port, type `e`, then `y`. Lift and scan the same finger twice. Esc cancels.

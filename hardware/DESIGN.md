@@ -22,9 +22,9 @@ someone injecting a fake match on the UART wires.
 - Separate presence button on GP6, pulled up to 3.3 V through 10k.
 - Four layers preferred. Assembly service for the QFN.
 
-Select flash and regulator part numbers after checking the reference BOM and
-assembly stock. USB series termination follows the RP2350 reference, not a
-copied RP2040 value. The core supply needs more than an external 3.3 V LDO.
+The [BOM](pcb/bom.csv) selects parts, but assembly stock is not confirmed.
+The regulator needs changing for [USB suspend](power.md). USB series termination
+follows the RP2350 reference. The core supply needs more than an external 3.3 V LDO.
 
 OTP is storage, not automatic key protection. Secure boot, debug restrictions,
 key provisioning and silicon revision all matter. Upstream initializes and locks key storage on first boot. Use a dedicated

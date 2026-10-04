@@ -21153,7 +21153,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+		(property "Datasheet" "https://www.mikrocontroller.net/attachment/650878/SJ121836.pdf"
 			(at 330.2 43.18 0)
 			(effects
 				(font
@@ -21221,6 +21221,30 @@
 				)
 			)
 		)
+		(property "manufacturer" "JAE"
+			(at 334.01 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "DX07S016JA1R1500"
+			(at 334.01 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -21255,7 +21279,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-075K1L"
 			(at 369.57 40.64 0)
 			(effects
 				(font
@@ -21276,6 +21300,30 @@
 					(reference "R11")
 					(unit 1)
 				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 372.11 41.910000000000004 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-075K1L"
+			(at 372.11 41.910000000000004 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 	)
@@ -21312,7 +21360,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-075K1L"
 			(at 389.89 40.64 0)
 			(effects
 				(font
@@ -21333,6 +21381,30 @@
 					(reference "R12")
 					(unit 1)
 				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 392.43 41.910000000000004 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-075K1L"
+			(at 392.43 41.910000000000004 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 	)
@@ -21404,6 +21476,30 @@
 				)
 			)
 		)
+		(property "manufacturer" "STMicroelectronics"
+			(at 369.57 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "USBLC6-2SC6"
+			(at 369.57 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x06")
@@ -21438,7 +21534,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/sh-connector"
 			(at 342.9 142.24 0)
 			(effects
 				(font
@@ -21471,6 +21567,30 @@
 					(reference "J2")
 					(unit 1)
 				)
+			)
+		)
+		(property "manufacturer" "JST"
+			(at 345.44 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "SM06B-SRSS-TB(LF)(SN)"
+			(at 345.44 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 	)
@@ -21507,7 +21627,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "file:///C:\\rpi-pdb\\parts\\Electromechanical\\Switches\\Tactile\\WURTHELEK_434133025816\\datasheets"
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/434133025816.pdf"
 			(at 330.2 177.8 0)
 			(effects
 				(font
@@ -21534,6 +21654,30 @@
 					(reference "SW3")
 					(unit 1)
 				)
+			)
+		)
+		(property "manufacturer" "Wurth Elektronik"
+			(at 330.2 175.26000000000002 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "434133025816"
+			(at 330.2 175.26000000000002 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 	)
@@ -21570,7 +21714,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-0710KL"
 			(at 365.76 175.26 0)
 			(effects
 				(font
@@ -21591,6 +21735,30 @@
 					(reference "R14")
 					(unit 1)
 				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 368.3 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-0710KL"
+			(at 368.3 176.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 	)
@@ -21627,7 +21795,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF"
 			(at 365.76 210.82 0)
 			(effects
 				(font
@@ -21648,6 +21816,30 @@
 					(reference "D1")
 					(unit 1)
 				)
+			)
+		)
+		(property "manufacturer" "Lite-On"
+			(at 365.76 208.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "LTST-C190KGKT"
+			(at 365.76 208.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 	)
@@ -21684,7 +21876,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-071KL"
 			(at 389.89 203.2 0)
 			(effects
 				(font
@@ -21705,6 +21897,30 @@
 					(reference "R13")
 					(unit 1)
 				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 392.43 204.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-071KL"
+			(at 392.43 204.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
 			)
 		)
 	)

@@ -7532,7 +7532,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2000-074/LTST-C190KGKT.PDF"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -7559,6 +7559,32 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "90fd3704-9856-43ba-85bf-5c9fb4b2f64c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer" "Lite-On"
+			(at 0 1.43 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "55784dc8-93d0-4489-948d-c93f1d56605f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "LTST-C190KGKT"
+			(at 0 1.43 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "71717851-ad36-470c-8d42-97bf6a660ca8")
 			(effects
 				(font
 					(size 1 1)
@@ -7729,7 +7755,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+		(property "Datasheet" "https://www.mikrocontroller.net/attachment/650878/SJ121836.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7751,6 +7777,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer" "JAE"
+			(at 0 5 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ac9c9416-fd46-48ff-802a-8075e3d181e9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "DX07S016JA1R1500"
+			(at 0 5 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d8037237-8e99-4f63-8f10-248d3f5a71cf")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -8109,7 +8161,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-071KL"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8136,6 +8188,32 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "8ba91210-ffae-4790-9578-7cdea0370e55")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5d374be8-db2b-4e73-8735-52749cf85a38")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-071KL"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "841ea659-526b-4e2b-80cd-594cf959fd77")
 			(effects
 				(font
 					(size 1 1)
@@ -8642,7 +8720,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-0710KL"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8669,6 +8747,32 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "c3c12c53-5177-42e1-af13-534b63cc5272")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cd7c8bed-1226-4bb3-b02f-6b10183a1c1f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-0710KL"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "927d0526-5baf-432e-9791-c5e6a13d4148")
 			(effects
 				(font
 					(size 1 1)
@@ -8792,7 +8896,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "file:///C:\\rpi-pdb\\parts\\Electromechanical\\Switches\\Tactile\\WURTHELEK_434133025816\\datasheets"
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/434133025816.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8849,7 +8953,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d22c9d04-b0ee-4f4b-9701-f87da93662f0")
+			(uuid "a3cfdab4-141c-4ea6-b88d-c9e4389d8be6")
 			(effects
 				(font
 					(size 1 1)
@@ -8862,7 +8966,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "e21ecfc7-44c0-4c0f-ad09-2d6cc0d391e1")
+			(uuid "96ad2390-c6e2-4759-8c34-6f651a17f263")
 			(effects
 				(font
 					(size 1 1)
@@ -11369,6 +11473,32 @@
 				)
 			)
 		)
+		(property "manufacturer" "STMicroelectronics"
+			(at 0 2.4 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c8cb17c5-dea3-4c21-8559-cd22beaf2706")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "USBLC6-2SC6"
+			(at 0 2.4 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5ec4e198-14ea-40f7-a3bf-14e630b52dc0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/8ef3348e-f1c4-4a1c-93cf-14ca6ec2902a")
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
@@ -11677,7 +11807,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-075K1L"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -11704,6 +11834,32 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "11e13a52-b65f-4b11-b083-231d3d4af134")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6f19c172-caa9-432a-94d4-ef286cf005f4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-075K1L"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "871f9eeb-67fe-4d8e-978a-5703cf2b2f08")
 			(effects
 				(font
 					(size 1 1)
@@ -12202,7 +12358,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://yageogroup.com/component-documentation/download/specsheet/RC0402FR-075K1L"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -12229,6 +12385,32 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "02e73154-5dd3-49a2-83b4-ab895a3b2452")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer" "Yageo"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bec98582-333e-4970-b25f-1d305bf6e41a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "RC0402FR-075K1L"
+			(at 0 1.17 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0633863f-d685-4642-b018-e8488ebd4e8c")
 			(effects
 				(font
 					(size 1 1)
@@ -17670,7 +17852,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/sh-connector"
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -17705,6 +17887,32 @@
 					(thickness 0.15)
 				)
 				(justify mirror)
+			)
+		)
+		(property "manufacturer" "JST"
+			(at 0 -3.98 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "16e7c3b5-d382-4408-9c20-eccb3c8bfa52")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "manufacturer_pn" "SM06B-SRSS-TB(LF)(SN)"
+			(at 0 -3.98 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "99d57cd2-6023-40f7-b3ae-7ff1113cfe53")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
 			)
 		)
 		(path "/4a4e4f73-6dab-49c9-8d56-e172842ea3c8")

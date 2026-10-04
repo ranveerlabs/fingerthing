@@ -191,3 +191,16 @@ Rendered the exported meshes. The assembly uses approximate component blocks.
 
 Sensor flange and nut dimensions, cable routing, USB plug clearance and button
 release still need measurements and a print fit check. No hardware tests yet.
+
+## session 018 - 2026-10-04
+
+Filled the missing manufacturer part numbers and exported the board BOM from
+the schematic. It covers 42 fitted components, with R1 DNP. ERC, DRC and
+schematic parity still pass with zero unconnected items. Routing is unchanged.
+
+The inherited signing descriptor declared 2 mA USB power. Changed it to a
+100 mA budget. The PCB build and host tests pass. Its compiled descriptor has
+bMaxPower 50, in 2 mA units. No current measurement yet.
+
+Found that the NCP1117's idle current budget and missing USB suspend handling
+need work before fabrication. Documented the remaining power checks.
