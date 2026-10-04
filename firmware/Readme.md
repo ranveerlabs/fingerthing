@@ -46,6 +46,12 @@ For the switched PCB, use `.build/enroll-pcb/enroll.uf2`, then the `pcb` signing
 image. Enrollment powers the sensor only after `y` and turns it off when the
 attempt ends. The plain `enroll` image does not control GP8.
 
+Suspend, disconnect or reconfiguration cancels the pending enrollment and its
+confirmation prompt. Resume does not clear it. Start again with `e`, then `y`.
+Closing the serial connection's DTR line cancels it too.
+Cancellation cannot undo a store command already sent, so slot 0 may have changed
+even if the image reports failure.
+
 UART matches can be spoofed. Enrollment has not been tested on hardware.
 
 Builds and host tests pass. No hardware, npm or FreeBSD test yet.

@@ -286,3 +286,17 @@ SDK self-test passes all six SHA-384 and SHA-512 cases under ASan and UBSan.
 
 Physical startup, backfeed, repeated requests and USB suspend timing remain
 unverified. MCU sleep is not integrated into signing firmware.
+
+## session 025 - 2026-10-04
+
+Enrollment now keeps cancellation through a quick USB resume or reconnect.
+Suspend, disconnect and reconfiguration invalidate the pending e/y prompt and
+sensor attempt. Only starting a new prompt clears it.
+Dropping the serial connection's DTR line cancels it too, including a quick reopen.
+
+Both enrollment builds pass. Their compiled images contain the USB callbacks.
+Host tests run the actual controller through prompt cancellation, interrupted
+enrollment, serial flood, timer wrap and a fresh retry. Queued input draining
+is bounded at 128 bytes and rejects an overfull prompt. Added a case for cancellation after
+storage. Failure after a store command does not prove slot 0 stayed unchanged.
+No hardware USB tests yet.

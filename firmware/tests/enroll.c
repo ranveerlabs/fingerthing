@@ -7,7 +7,7 @@ static const int scans[] = {0,0,2,2,0,0,2,0};
 
 static bool tick(void) {
     ++calls;
-    return calls < 100 && !(kind == 5 && made == 1);
+    return calls < 100 && !(kind == 5 && made == 1) && !(kind == 7 && stored);
 }
 int r503_init(r503 *s) { (void)s; return kind == 1 ? -1 : 0; }
 int r503_image(r503 *s) {
@@ -32,11 +32,11 @@ int r503_store(r503 *s) {
 int main(void) {
     r503 s = {0};
     assert(enroll(&s, NULL) == -1);
-    for (kind = 0; kind <= 6; ++kind) {
+    for (kind = 0; kind <= 7; ++kind) {
         calls = images = made = stored = 0;
         int ret = enroll(&s, tick);
         assert((ret == 0) == (kind == 0));
-        assert(stored == (kind == 0 || kind == 6));
+        assert(stored == (kind == 0 || kind == 6 || kind == 7));
     }
     puts("enroll: two fresh captures, cancellation and failures before storage passed");
 }

@@ -11,4 +11,7 @@ void gpio_put(unsigned pin, bool value);
 void gpio_set_dir(unsigned pin, bool out);
 #define GPIO_FUNC_UART 2
 #define GPIO_OUT true
+bool stdio_init_all(void);
+int getchar_timeout_us(uint32_t timeout);
+void sleep_ms(uint32_t delay);
 #endif
