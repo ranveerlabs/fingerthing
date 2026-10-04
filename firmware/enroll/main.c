@@ -13,7 +13,7 @@ static bool tick(void) {
 
 int main(void) {
     stdio_init_all();
-    sensor_init();
+    sensor_off();
     sensor_tick poll = tick;
     r503 s = {sensor_io, &poll};
     for (;;) {
@@ -25,7 +25,9 @@ int main(void) {
         puts("replace slot 0? y");
         if (getchar_timeout_us(10000000) != 'y') continue;
         start = to_ms_since_boot(get_absolute_time());
+        sensor_init();
         int ret = enroll(&s, tick);
+        sensor_off();
         puts(ret ? "failed" : "saved");
         puts("flash the sensor firmware before use");
     }

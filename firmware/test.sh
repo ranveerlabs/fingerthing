@@ -15,3 +15,5 @@ check r503 firmware/src/r503.c firmware/tests/r503.c
 check finger firmware/src/finger.c firmware/src/bus.c firmware/tests/finger.c
 check enroll firmware/src/enroll.c firmware/tests/enroll.c
 check uart firmware/src/r503.c firmware/src/uart.c firmware/tests/uart.c
+check uart-power -DFINGERTHING_SENSOR_POWER_PIN=8 firmware/src/r503.c firmware/src/uart.c firmware/tests/uart.c
+check port firmware/src/port.c firmware/tests/port.c

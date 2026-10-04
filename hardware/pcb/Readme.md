@@ -27,7 +27,8 @@ measurements remain, see [power](../power.md).
 
 U5 is TPS22919DCKR. GP8 switches both R503 supplies. C21 bypasses the input,
 C22 bypasses the output, R15 pulls ON down and R16 pulls sensor RX up to the
-switched rail. Signing firmware still needs this control before board use.
+switched rail. The `pcb` and `enroll-pcb` images control the switch, with physical
+power and backfeed tests still pending.
 The UART pull-up branch uses In1.Cu below the USB routing.
 
 The [local switch symbol](fingerthing.kicad_sym) comes from KiCad's

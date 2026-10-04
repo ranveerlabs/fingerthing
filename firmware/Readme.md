@@ -8,13 +8,16 @@ bash firmware/build.sh
 bash firmware/build.sh sensor
 bash firmware/build.sh pcb
 bash firmware/build.sh enroll
+bash firmware/build.sh enroll-pcb
 ```
 
 UF2: `.build/pico2/pico_fido2.uf2` or `.build/sensor/pico_fido2.uf2`.
 The custom board build is `.build/pcb/pico_fido2.uf2`. It uses an active-low
 button on GP6 with a 20 ms debounce. BOOTSEL stays available for recovery.
-Do not run this image on the revised PCB yet. It still needs GP8 sensor-switch
-control and UART release at power-off.
+GP8 powers the sensor for each approval attempt and turns it off afterward.
+GP4 and GP5 return to inputs without pulls before power-off. The Pico 2 sensor
+build leaves power wiring unchanged. Both wait 250 ms before enabling UART,
+with cancellation and PIN fallback available during startup.
 BOOTSEL while plugging in, then copy the UF2. Use a dedicated development board:
 upstream writes and locks OTP keys on first boot. Reflashing cannot undo this.
 
@@ -30,14 +33,18 @@ The separate [power probe](power/Readme.md) builds with `bash firmware/build.sh 
 
 Approval starts only while USB is configured and awake. Suspend, disconnect or
 reconfiguration cancels pending button and fingerprint approval, including PIN
-fallback. Resuming does not clear that cancellation. These callbacks do not
-put the MCU or sensor into a low power state.
+fallback. Resuming does not clear that cancellation. Request cleanup turns off
+the PCB sensor. MCU sleep and physical suspend timing remain unverified.
 
 R503: 3.3V and GND, sensor RX to GP4, TX to GP5. UART1, 57600 baud.
 Enrollment: flash `.build/enroll/enroll.uf2` with BOOTSEL, open its USB serial
 port, type `e`, then `y`. Lift and scan the same finger twice. Esc cancels.
 This development image replaces slot 0 and has a 60-second timeout. Flash the
 sensor firmware afterward. Use it before storing credentials. Enrollment has no FIDO code. Signing firmware has no enrollment command.
+
+For the switched PCB, use `.build/enroll-pcb/enroll.uf2`, then the `pcb` signing
+image. Enrollment powers the sensor only after `y` and turns it off when the
+attempt ends. The plain `enroll` image does not control GP8.
 
 UART matches can be spoofed. Enrollment has not been tested on hardware.
 

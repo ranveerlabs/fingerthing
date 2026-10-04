@@ -13,12 +13,10 @@ bool finger_cancel(void) { return cancel_button; }
 void finger_poll(void) { execute_tasks(); }
 
 bool finger_wait(bool pin) {
-    static bool init;
-    if (!init) {
-        sensor_init();
-        init = true;
-    }
+    sensor_init();
     sensor_tick tick = finger_tick;
     r503 s = {sensor_io, &tick};
-    return finger_gate(&s, pin);
+    bool failed = finger_gate(&s, pin);
+    sensor_off();
+    return failed;
 }

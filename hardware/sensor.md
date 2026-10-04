@@ -15,7 +15,9 @@ The supplier's module must match this variant before ordering or printing a case
 
 U5 switches both supplies with GP8. R15 keeps the switch off at reset.
 R16 pulls sensor RX up to the switched rail. Touch wake is unused.
-The signing firmware still needs switch control before use on this board.
+The `pcb` signing and `enroll-pcb` development images control GP8. UART pins
+return to inputs without pulls before cutting sensor power. This needs a
+physical backfeed and power-cycle check.
 
 UART defaults to 57600 baud, 8N1. J2 uses JST SH at 1.0 mm pitch. The manual calls
 the sensor connector MX1.0-6P. Use a pin-for-pin adapter cable, with each plug

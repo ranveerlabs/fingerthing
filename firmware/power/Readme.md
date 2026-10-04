@@ -30,4 +30,4 @@ not prove its USB port suspended this device.
 
 The SDK serial descriptor declares 250 mA. This is a budget, not measured draw.
 The image builds with warnings treated as errors. No physical power or wake
-test yet. The switch is in the draft PCB. Signing firmware still needs its control.
+test yet. The switch is in the draft PCB. Signing firmware controls it per request.

@@ -4,13 +4,15 @@ cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 root=$PWD
 mode=${1:-button}
 pcb=OFF
+power_pin=
 case "$mode" in
     button) sensor=OFF; dir=pico2 ;;
     sensor) sensor=ON; dir=sensor ;;
     pcb) sensor=ON; pcb=ON; dir=pcb ;;
     enroll) dir=enroll ;;
+    enroll-pcb) dir=enroll-pcb; power_pin=8 ;;
     power) dir=power ;;
-    *) echo "Usage: $0 [button|sensor|pcb|enroll|power]" >&2; exit 1 ;;
+    *) echo "Usage: $0 [button|sensor|pcb|enroll|enroll-pcb|power]" >&2; exit 1 ;;
 esac
 mkdir -p .build
 
@@ -40,10 +42,11 @@ fi
 
 get .build/pico-sdk https://github.com/raspberrypi/pico-sdk.git \
     bddd20f928ce76142793bef434d4f75f4af6e433
-if [[ $mode == enroll ]]; then
-    cmake -S firmware/enroll -B .build/enroll \
-        -DPICO_SDK_PATH="$root/.build/pico-sdk" -DPICO_BOARD=pico2
-    cmake --build .build/enroll --parallel "${BUILD_JOBS:-4}"
+if [[ $mode == enroll || $mode == enroll-pcb ]]; then
+    cmake -S firmware/enroll -B ".build/$dir" \
+        -DPICO_SDK_PATH="$root/.build/pico-sdk" -DPICO_BOARD=pico2 \
+        -DFINGERTHING_SENSOR_POWER_PIN="$power_pin"
+    cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"
     bash firmware/test.sh
     exit
 fi

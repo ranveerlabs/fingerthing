@@ -266,3 +266,23 @@ zero unconnected items. Rendered the copper and schematic. The BOM now lists
 
 Signing firmware still needs GP8 control and UART release before running on
 the revised board. Switching, backfeed, inrush and suspend remain unmeasured.
+
+## session 024 - 2026-10-04
+
+Added GP8 control to the PCB signing image. Each attempt powers the sensor,
+waits 250 ms with cancellation available, then enables UART. Cleanup resets
+UART, releases GP4 and GP5 without pulls and turns the sensor off. Pico 2
+sensor wiring stays unchanged.
+
+Added an enroll-pcb build. Enrollment powers the sensor after confirmation
+and shuts it down when the attempt ends. Host tests cover startup cancellation,
+UART release before power-off, timer wrap, refused I/O while off and request
+cleanup after approval and failure with both PIN states.
+
+Button, sensor, PCB and both enrollment builds pass. Checked that only the
+PCB signing and enrollment builds define the GP8 switch pin. The new enrollment
+build's host picotool emitted SDK SHA-512 self-test overread warnings. The same
+SDK self-test passes all six SHA-384 and SHA-512 cases under ASan and UBSan.
+
+Physical startup, backfeed, repeated requests and USB suspend timing remain
+unverified. MCU sleep is not integrated into signing firmware.

@@ -14,12 +14,13 @@ as well as steady current and regulator temperature in the closed case.
 
 [TinyUSB's suspend callback](https://github.com/hathach/tinyusb/blob/0.18.0/src/device/usbd.h)
 requires less than 2.5 mA average bus draw within 7 ms. The callback cancels
-pending approval but does not reduce draw. MCU and sensor power management,
-resume handling and whole-board measurements remain.
+pending approval. PCB request cleanup releases UART and cuts sensor power.
+MCU sleep, transition timing and whole-board measurements remain.
 
 The [power probe](../firmware/power/Readme.md) tests MCU clock reduction on a
 Pico 2, then sensor switching with an external circuit. The draft PCB now
-switches both R503 supplies with GP8. Signing firmware still needs that control.
+switches both R503 supplies with GP8. The `pcb` signing image powers the sensor
+for each request and turns it off afterward.
 Backfeed checks and physical power measurements remain.
 
 Do not order the custom board until these changes and checks are complete.
@@ -46,5 +47,7 @@ finger detection. Check cable pin order first.
 
 The probe disables the switch at startup, USB suspend and disconnect. Measure
 the switched rail voltage and VBUS draw with power off, then check inrush when
-it turns on. Include the sensor's internal capacitance. Keep the signing image
-off the revised PCB until it controls GP8 and releases the UART pins at power-off.
+it turns on. Include the sensor's internal capacitance. The signing image waits
+250 ms before enabling UART and releases both pins before power-off. Test cold
+startup, rapid repeated requests and cancellation during startup on the exact
+sensor variant. No physical power-cycle tests yet.
