@@ -23,8 +23,9 @@ someone injecting a fake match on the UART wires.
 - Four layers preferred. Assembly service for the QFN.
 
 The [BOM](pcb/bom.csv) selects parts, but assembly stock is not confirmed.
-The regulator needs changing for [USB suspend](power.md). USB series termination
-follows the RP2350 reference. The core supply needs more than an external 3.3 V LDO.
+AP2112K-3.3TRG1 supplies 3.3 V. [USB suspend](power.md) still needs firmware and
+measurements. USB series termination follows the RP2350 reference. The core
+supply needs more than an external 3.3 V LDO.
 
 OTP is storage, not automatic key protection. Secure boot, debug restrictions,
 key provisioning and silicon revision all matter. Upstream initializes and locks key storage on first boot. Use a dedicated

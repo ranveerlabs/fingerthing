@@ -204,3 +204,15 @@ bMaxPower 50, in 2 mA units. No current measurement yet.
 
 Found that the NCP1117's idle current budget and missing USB suspend handling
 need work before fabrication. Documented the remaining power checks.
+
+## session 019 - 2026-10-04
+
+Replaced NCP1117 with AP2112K-3.3TRG1. Checked the SOT25 pinout and ordering
+code against Diodes' datasheet. Enable follows VBUS and pin 4 is unconnected.
+Moved C1 and C5 beside the regulator and rerouted their power and ground.
+Removed one duplicate VBUS track while changing that connection.
+
+ERC, DRC and schematic parity pass with zero unconnected items. Rendered the
+schematic and top copper. Other footprints, pad positions and nets are unchanged.
+Updated the BOM. USB suspend, inrush, current and temperature measurements
+remain. No hardware tests yet.

@@ -18,7 +18,7 @@
 "R14","10k","Yageo","RC0402FR-0710KL","Resistor_SMD:R_0402_1005Metric","1"
 "SW1,SW3","434133025816","Wurth Elektronik","434133025816","RPI_COMPILED:wurthelek_434133025816","2"
 "U1","RP2350A","Raspberry Pi","RP2350A","RPI_COMPILED:rpi_rp2350a_vias","1"
-"U2","NCP1117ST33T3G","ON Semiconductor","NCP1117ST33T3G","RPI_COMPILED:onsemi_ncp1117st33t3g","1"
+"U2","AP2112K-3.3","Diodes Incorporated","AP2112K-3.3TRG1","Package_TO_SOT_SMD:SOT-23-5","1"
 "U3","W25Q128JVSIQ","Winbond","W25Q128JVSIQ","RPI_COMPILED:generic_soic127p790x195-8","1"
 "U4","USBLC6-2SC6","STMicroelectronics","USBLC6-2SC6","Package_TO_SOT_SMD:SOT-23-6","1"
 "X1","12MHz","Abracon","ABM8-272-T3","RPI_COMPILED:generic_xtalcc320x250x80-4","1"

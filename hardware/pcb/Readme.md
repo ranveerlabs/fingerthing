@@ -21,8 +21,9 @@ regulator routing come from Raspberry Pi's RP2350A R4/S1 reference. C20 adds a
 R503 cable fit and the enclosure are not confirmed. Do not order this yet.
 `bash hardware/check.sh` runs ERC and DRC with KiCad's standard libraries installed.
 
-[BOM](bom.csv): 42 fitted components. R1 is DNP. The regulator and suspend
-handling still need changes, see [power](../power.md).
+[BOM](bom.csv): 42 fitted components. R1 is DNP. U2 is AP2112K-3.3TRG1,
+with C1 and C5 beside its input and output. Suspend handling and current
+measurements remain, see [power](../power.md).
 
 [reference](https://datasheets.raspberrypi.com/rp2350/Minimal-KiCAD.zip) · [license](LICENSE.raspberrypi)
 

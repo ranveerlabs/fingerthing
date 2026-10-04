@@ -11285,6 +11285,199 @@
 				)
 			)
 		)
+		(symbol "fingerthing:AP2112K-3.3"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at -5.08 6.604 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "AP2112K-3.3"
+				(at 1.27 -5.334 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+				(at 0 8.255 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "3.3 V LDO with enable, SOT25"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "manufacturer" "Diodes Incorporated"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "manufacturer_pn" "AP2112K-3.3TRG1"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "AP2112K-3.3_0_1"
+				(rectangle
+					(start -6.35 3.81)
+					(end 6.35 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "AP2112K-3.3_1_1"
+				(pin power_in line
+					(at 0 -6.35 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 8.89 -1.27 180)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -8.89 0 0)
+					(length 2.54)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -8.89 -2.54 0)
+					(length 2.54)
+					(name "EN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at 8.89 2.54 180)
+					(length 2.54)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 	)
 	(sheet_instances
 		(path "/"
@@ -14985,7 +15178,7 @@
 		)
 	)
 	(symbol
-		(lib_id "fingerthing:RP-01JWD9-7JRX6J")
+		(lib_id "fingerthing:AP2112K-3.3")
 		(at 76.2 44.45 0)
 		(unit 1)
 		(body_style 1)
@@ -15006,7 +15199,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "NCP1117ST33T3G"
+		(property "Value" "AP2112K-3.3"
 			(at 67.818 39.624 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15017,7 +15210,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "RPI_COMPILED:onsemi_ncp1117st33t3g"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 			(at 76.2 36.195 0)
 			(hide yes)
 			(show_name no)
@@ -15029,7 +15222,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "file:///C:\\rpi-pdb\\parts\\Integrated_Circuits\\Power\\LDO\\ONSEMI_NCP1117ST33T3G\\datasheets"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
 			(at 76.2 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -15041,7 +15234,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LDO, Vin=4.75-20V, Vout=3.3V, 1A min, SOT-223"
+		(property "Description" "3.3 V LDO with enable, SOT25"
 			(at 76.2 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -15053,7 +15246,7 @@
 				(hide yes)
 			)
 		)
-		(property "part_uid" "RP-01JWD9-7JRX6J"
+		(property "manufacturer" "Diodes Incorporated"
 			(at 76.2 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -15065,7 +15258,7 @@
 				(hide yes)
 			)
 		)
-		(property "manufacturer" "ON Semiconductor"
+		(property "manufacturer_pn" "AP2112K-3.3TRG1"
 			(at 76.2 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -15076,150 +15269,6 @@
 				)
 				(hide yes)
 			)
-		)
-		(property "manufacturer_pn" "NCP1117ST33T3G"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "packaging" "Tape & Reel"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "packaging_qty" "4000"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "voltage" "3.3V"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "operating_temp_max" "+125C"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "operating_temp_min" "+0C"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "z_height_max" "1.8mm"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "package" "SOT-223"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "size" "6.5x7x1.8mm"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "current" "1A"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "z_height_nom" "1.8mm"
-			(at 76.2 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "98c5285d-fe98-4315-bfb7-537025841fbb")
-		)
-		(pin "2"
-			(uuid "516cf5b8-5c8b-4cb1-bd95-087841ac86df")
-		)
-		(pin "3"
-			(uuid "b7ebbd30-b8df-4305-90d8-18d487cd29c9")
-		)
-		(pin "4"
-			(uuid "ec801465-9687-4bcf-b122-30cfcad17bb4")
 		)
 		(instances
 			(project "fingerthing"
@@ -15228,6 +15277,21 @@
 					(unit 1)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "39c99318-1fb4-4294-a2fe-e7dd4f3bcd65")
+		)
+		(pin "2"
+			(uuid "244c47c6-dc59-4334-922a-7847c2a2cf47")
+		)
+		(pin "3"
+			(uuid "9ff3445b-ee02-4c24-b289-416b6faf6481")
+		)
+		(pin "4"
+			(uuid "189c7cfe-7d3f-417f-a316-95425e178afc")
+		)
+		(pin "5"
+			(uuid "0665d17b-28d8-4232-bbbd-03c8ac28cf47")
 		)
 	)
 	(symbol
@@ -22793,27 +22857,6 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 43.18)
-			(xy 87.63 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2ac1ab08-cf4f-4792-b1b7-25f62c7d55d0")
-	)
-	(label "+3V3"
-		(at 87.63 43.18 0)
-		(effects
-			(font
-				(size 1.0 1.0)
-			)
-			(justify left bottom)
-		)
-		(uuid "9624a755-ffb2-420e-8080-9fa28155f368")
-	)
-	(wire
-		(pts
 			(xy 58.42 49.53)
 			(xy 58.42 46.99)
 		)
@@ -25822,5 +25865,30 @@
 			(justify left bottom)
 		)
 		(uuid "6a469878-97cc-449e-861b-499366fd7474")
+	)
+	(wire
+		(pts
+			(xy 67.31 46.99)
+			(xy 64.77 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23d7fcdc-a6b1-4522-ba0c-53841c79cb16")
+	)
+	(label "VBUS"
+		(at 64.77 46.99 0)
+		(effects
+			(font
+				(size 1.0 1.0)
+			)
+			(justify left bottom)
+		)
+		(uuid "155fc042-9682-4557-9698-de4db05d7600")
+	)
+	(no_connect
+		(at 85.09 41.91)
+		(uuid "12e51155-542a-44e5-b591-5e4e7066eda6")
 	)
 )

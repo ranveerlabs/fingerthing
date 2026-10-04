@@ -12,5 +12,6 @@ The [board BOM](../hardware/pcb/bom.csv) comes from the schematic. It lists
 42 fitted components with manufacturer part numbers. R1 is DNP and the four
 mounting holes are excluded. Assembly stock has not been confirmed.
 
-The power circuit still needs a regulator change for USB suspend. Sensor and
-enclosure fit also remain unverified. Do not use this BOM to order a board yet.
+The board uses AP2112K-3.3TRG1 for 3.3 V. USB suspend and current measurements
+still need work. Sensor and enclosure fit remain unverified. Do not use this
+BOM to order a board yet.
