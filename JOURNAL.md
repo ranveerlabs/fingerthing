@@ -144,3 +144,11 @@ routing. Added a supply bridge where the routes split the 3.3 V fill.
 
 ERC and schematic parity pass. DRC has 14 unconnected USB items and no other
 violations. USB routing and impedance, sensor cable fit and hardware tests remain.
+
+## session 014 - 2026-10-04
+
+Connected both USB-C power banks, the ESD supply and regulator input. Routed
+CC1 and CC2 to their separate 5.1k pull-downs. Power tracks are 0.5 mm wide.
+
+ERC and schematic parity pass. DRC has eight unconnected USB data items and
+no other violations. The data pair and final impedance still need work.

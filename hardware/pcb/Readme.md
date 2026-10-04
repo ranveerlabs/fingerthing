@@ -4,8 +4,8 @@ KiCad 10. 34 x 48 mm, four-layer draft based on Raspberry Pi's RP2350A R4/S1
 reference. USB-C, R503 header, GP6 presence button and rear SWD connection.
 Flash, crystal and core regulator routing retained from the reference.
 
-Power, sensor, button, LED and SWD connections are routed. ERC passes and the PCB
-matches the schematic. DRC reports 14 unconnected USB items and no other violations.
+Power, USB CC, sensor, button, LED and SWD connections are routed. ERC passes and the PCB
+matches the schematic. DRC reports eight unconnected USB data items and no other violations.
 Stackup is preliminary,
 USB impedance is not verified, and the R503 cable fit is not confirmed. Do not order this.
 
