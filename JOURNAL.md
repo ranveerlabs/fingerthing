@@ -335,3 +335,16 @@ Button, sensor and PCB signing builds pass with the host tests. The patch
 applies to clean pinned source and validates on repeated builds.
 No Pico or signing-firmware USB device is attached here. npm, FreeBSD and
 physical checks remain.
+
+## session 028 - 2026-10-06
+
+Selected Adafruit's 3.3 V R503 #4651 and Pico 2 #6006 for bring-up, with a
+data cable, breadboard and jumpers. The sensor listing says 15.5 mm height,
+while its linked manual says 19 mm. The case keeps its existing clearance
+guide until the module can be measured. The supplied cable needs an adapter
+for the custom board's JST SH connector.
+
+The Pico 2 listing specifies A2 silicon. It is a development board here.
+The final key requires A4, which fixes GPIO leakage and several security
+defects. Supplier confirmation, A4 tooling, secure boot and physical tests
+remain. No parts ordered.

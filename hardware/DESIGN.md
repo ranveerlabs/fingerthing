@@ -31,6 +31,12 @@ OTP is storage, not automatic key protection. Secure boot, debug restrictions,
 key provisioning and silicon revision all matter. Upstream initializes and locks key storage on first boot. Use a dedicated
 bring-up board. Secure-boot provisioning waits until updates and recovery work.
 
+Require A4 silicon for the final board and confirm the chip marking.
+[A4 fixes](https://www.raspberrypi.com/news/rp2350-a4-rp2354-and-a-new-hacking-challenge/)
+include GPIO leakage and boot ROM and OTP security defects. A generic RP2350A
+part number does not establish the stepping. The current SDK 2.1.1 signing
+build still needs the A4 tooling update.
+
 ## references
 
 - [immurok hardware](https://github.com/immurok/hardware), reference for sensor clearance,

@@ -27,6 +27,10 @@ switches both R503 supplies with GP8. The `pcb` signing image powers the sensor
 for each request and turns it off afterward.
 Backfeed checks and physical power measurements remain.
 
+Check the chip stepping during bring-up. A2 GPIO leakage can affect inputs
+even with pulls disabled. Require A4 for the final board, as described in the
+[hardware notes](DESIGN.md).
+
 Do not order the custom board until these changes and checks are complete.
 
 ## sensor switch
