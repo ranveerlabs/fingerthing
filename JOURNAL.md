@@ -415,3 +415,13 @@ needs MCU suspend integration after the probe is tested on hardware.
 
 The probe builds and the full host suite passes. No USB current measurement
 or physical suspend test performed.
+
+## session 033 - 2026-10-06
+
+The FreeBSD access rule now matches `hidraw` as well as `uhid`. libfido2 prefers
+hidraw, and the HID bus reports the same vendor and product fields used by the
+rule. Access stays limited to USB ID 1d50:619b and the u2f group.
+
+Checked the upstream driver, libfido2 backend and u2f-devd package sources.
+The device-name pattern accepts numbered HID nodes and rejects other node
+names. No FreeBSD device or npm sign-in test performed.
