@@ -31,20 +31,24 @@ get() {
     git -C "$dir" submodule update --init --recursive --depth 1
 }
 
+get .build/pico-sdk-2.3.1 https://github.com/raspberrypi/pico-sdk.git \
+    079c6f39023649b154152db30f1d781e884879bc
+pico_sdk="$root/.build/pico-sdk-2.3.1"
+picotool=(
+    -DPICOTOOL_FORCE_FETCH_FROM_GIT=ON
+    -DPICOTOOL_GIT_BRANCH=2041936441b48a3cc53ae3da9e805229fe8f4e18
+    -DPICOTOOL_FETCH_FROM_GIT_PATH="$root/.build/picotool-2.3.1"
+)
 if [[ $mode == power ]]; then
-    get .build/pico-sdk-2.3.1 https://github.com/raspberrypi/pico-sdk.git \
-        079c6f39023649b154152db30f1d781e884879bc
-    cmake -S firmware/power -B .build/power \
-        -DPICO_SDK_PATH="$root/.build/pico-sdk-2.3.1" -DPICO_BOARD=pico2
+    cmake --fresh -S firmware/power -B .build/power "${picotool[@]}" \
+        -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2
     cmake --build .build/power --parallel "${BUILD_JOBS:-4}"
     exit
 fi
 
-get .build/pico-sdk https://github.com/raspberrypi/pico-sdk.git \
-    bddd20f928ce76142793bef434d4f75f4af6e433
 if [[ $mode == enroll || $mode == enroll-pcb ]]; then
-    cmake -S firmware/enroll -B ".build/$dir" \
-        -DPICO_SDK_PATH="$root/.build/pico-sdk" -DPICO_BOARD=pico2 \
+    cmake --fresh -S firmware/enroll -B ".build/$dir" "${picotool[@]}" \
+        -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2 \
         -DFINGERTHING_SENSOR_POWER_PIN="$power_pin"
     cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"
     bash firmware/test.sh
@@ -76,8 +80,8 @@ for part in sdk fido root; do
     done
 done
 
-cmake -S .build/pico-fido2 -B ".build/$dir" \
-    -DPICO_SDK_PATH="$root/.build/pico-sdk" -DPICO_BOARD=pico2 \
+cmake --fresh -S .build/pico-fido2 -B ".build/$dir" "${picotool[@]}" \
+    -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2 \
     -DFINGERTHING_DIR="$root/firmware" -DFINGERTHING_SENSOR="$sensor" \
     -DFINGERTHING_PCB="$pcb" \
     -DENABLE_OATH_APP=OFF -DENABLE_OTP_APP=OFF -DDEBUG_APDU=0 \

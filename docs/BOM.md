@@ -11,7 +11,7 @@
 These are bring-up parts. Adafruit's Pico 2 listing still specifies A2 silicon.
 Use it for development only. Require A4 for the final board and verify the chip
 marking before provisioning. [A4 fixes GPIO leakage and several security defects](https://www.raspberrypi.com/news/rp2350-a4-rp2354-and-a-new-hacking-challenge/).
-The signing build still uses SDK 2.1.1. A4 toolchain support and secure boot need work.
+The builds use SDK and picotool 2.3.1. A4 hardware checks and secure boot remain.
 
 The sensor cable needs soldered 2.54 mm header pins for the breadboard. Check
 pin numbers with the [sensor notes](../hardware/sensor.md), not wire colours.

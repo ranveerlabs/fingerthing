@@ -348,3 +348,21 @@ The Pico 2 listing specifies A2 silicon. It is a development board here.
 The final key requires A4, which fixes GPIO leakage and several security
 defects. Supplier confirmation, A4 tooling, secure boot and physical tests
 remain. No parts ordered.
+
+## session 029 - 2026-10-06
+
+All images now use Pico SDK 2.3.1 at 079c6f39023649b154152db30f1d781e884879bc
+and picotool 2.3.1 at 2041936441b48a3cc53ae3da9e805229fe8f4e18. Fresh CMake
+configuration removes the old SDK selection. CMake 3.24 or newer is required.
+The previous cache accepted a development picotool, so fetching the pinned
+commit is now explicit.
+
+Button, sensor, PCB, both enrollment images and the power probe build.
+Host tests pass. The new SDK changes the multicore lockout implementation.
+The flash patch still checks its return values and refuses a failed pause.
+
+Offline signing with temporary secp256k1 keys verifies all three signing
+images. Changing an application byte makes both hash and signature checks
+fail. Test keys and signed images are removed afterward. The local picotool
+build has no USB support. This check does not provision a device or prove
+boot ROM enforcement. Secure boot and physical A4 testing remain.

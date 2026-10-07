@@ -9,7 +9,7 @@ It replaces the running firmware. It has USB serial, no FIDO code and no OTP
 provisioning. Reflashing does not undo OTP locks from an earlier signing image.
 First measure with the sensor disconnected.
 
-This image pins Pico SDK 2.3.1. Signing and enrollment still use 2.1.1.
+All images pin Pico SDK and picotool 2.3.1.
 On USB suspend it switches the system and peripheral clocks to the crystal
 reference, turns off PLL_SYS and sleeps until an interrupt. USB clocks and the
 timer remain enabled. Resume restores the system clock.

@@ -1,7 +1,14 @@
 # firmware
 
 [librekeys/pico-fido2](https://github.com/librekeys/pico-fido2) on Pico 2.
-Pinned sources. Git, CMake, Make, ARM GCC with Newlib, native C compiler, Python 3.
+Pinned sources. Git, CMake 3.24+, Make, ARM GCC with Newlib, native C compiler,
+Python 3. Pico SDK and picotool use 2.3.1. Each configure clears the CMake cache
+so an older SDK cannot remain selected. UF2 paths stay the same.
+
+After building all three signing images, `python3 firmware/tests/seal.py` uses
+OpenSSL and picotool to check offline signing with a temporary test key. It
+also checks that changing application bytes fails verification. The temporary
+key and images are removed. This does not provision OTP or enable secure boot.
 
 ```sh
 bash firmware/build.sh
