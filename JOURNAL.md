@@ -399,3 +399,19 @@ Fuse provisioning and signed update and recovery behavior remain untested.
 A normal button build after the signed builds remains unsigned and passes the
 host tests. Offline signing and corruption checks pass on the development
 images. The temporary private keys were removed.
+
+## session 032 - 2026-10-06
+
+The power probe checked whether to slow the clock before masking interrupts.
+Suspend arriving between that check and the mask could put it to sleep with
+PLL_SYS still running. The suspend snapshot, sensor switch, clock transition
+and sleep decision now run under the same IRQ mask.
+
+The host test runs the actual controller with mocked clocks and USB events.
+It injects suspend at the mask boundary and checks clock reduction, sensor off,
+resume and reconnect. It fails against the previous source and passes with
+the fix. Physical draw and timing remain unmeasured. Signing firmware still
+needs MCU suspend integration after the probe is tested on hardware.
+
+The probe builds and the full host suite passes. No USB current measurement
+or physical suspend test performed.

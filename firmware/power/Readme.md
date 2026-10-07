@@ -13,6 +13,9 @@ All images pin Pico SDK and picotool 2.3.1.
 On USB suspend it switches the system and peripheral clocks to the crystal
 reference, turns off PLL_SYS and sleeps until an interrupt. USB clocks and the
 timer remain enabled. Resume restores the system clock.
+The suspend snapshot, sensor switch and clock transition now share the same
+IRQ mask as the sleep decision. This closes a window that could leave PLL_SYS
+running while the probe slept. Host tests inject suspend at that boundary.
 
 GP8 starts low and goes high only while USB is configured and awake. It drives
 the ON input of the [sensor switch](../../hardware/power.md#sensor-switch),

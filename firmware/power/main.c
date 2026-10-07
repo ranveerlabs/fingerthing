@@ -30,10 +30,11 @@ int main(void) {
     clock_dest_bitset_add(&keep, CLK_DEST_SYS_TIMER0);
     clock_dest_bitset_add(&keep, CLK_DEST_REF_TICKS);
     for (;;) {
-        gpio_put(8, tud_ready());
-        bool next = suspended;
-        if (next != slow) {
-            if (next) {
+        uint32_t irq = save_and_disable_interrupts();
+        bool sleep = suspended;
+        gpio_put(8, !sleep && tud_ready());
+        if (sleep != slow) {
+            if (sleep) {
                 uint32_t ref = clock_get_hz(clk_ref);
                 clock_configure_undivided(clk_sys, CLOCKS_CLK_SYS_CTRL_SRC_VALUE_CLK_REF, 0, ref);
                 clock_configure_undivided(clk_peri, 0, CLOCKS_CLK_PERI_CTRL_AUXSRC_VALUE_CLK_SYS, ref);
@@ -41,12 +42,9 @@ int main(void) {
             } else {
                 set_sys_clock_khz(full / 1000, true);
             }
-            slow = next;
+            slow = sleep;
         }
-        uint32_t irq = save_and_disable_interrupts();
-        bool sleep = suspended;
         if (sleep) {
-            gpio_put(8, false);
             low_power_sleep_until_irq(&keep);
         }
         restore_interrupts(irq);

@@ -51,6 +51,7 @@ if [[ $mode == power ]]; then
     cmake --fresh -S firmware/power -B ".build/$dir" "${picotool[@]}" \
         -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2 -DSECURE_BOOT_PKEY="$key"
     cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"
+    python3 firmware/tests/power.py
     exit
 fi
 

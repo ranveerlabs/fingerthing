@@ -18,3 +18,4 @@ check uart firmware/src/r503.c firmware/src/uart.c firmware/tests/uart.c
 check uart-power -DFINGERTHING_SENSOR_POWER_PIN=8 firmware/src/r503.c firmware/src/uart.c firmware/tests/uart.c
 check port firmware/src/port.c firmware/tests/port.c
 check enroll-main firmware/tests/enroll-main.c
+python3 firmware/tests/power.py
