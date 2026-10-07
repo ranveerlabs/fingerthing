@@ -435,3 +435,12 @@ enrollment and fingerprint approval before npm setup.
 
 The host suite passes. Hardware tests, final MCU suspend support and secure
 boot provisioning still need the development board and measurements.
+
+## session 035 - 2026-10-06
+
+Shortened the GP8 sensor-switch route from 19.444 mm to 15.804 mm and removed
+two segments. Other routed nets and vias are unchanged. Spaced the crowded
+reference labels and made the presence-switch labels read from the front.
+
+ERC, DRC and schematic parity pass with zero violations and unconnected items.
+Checked the rendered front layer. No hardware test performed.
