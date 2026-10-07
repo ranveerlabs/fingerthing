@@ -10,6 +10,23 @@ OpenSSL and picotool to check offline signing with a temporary test key. It
 also checks that changing application bytes fails verification. The temporary
 key and images are removed. This does not provision OTP or enable secure boot.
 
+Supply your own secp256k1 PEM key for a signed build:
+
+```sh
+SIGNING_KEY=/absolute/path/private.pem bash firmware/build.sh pcb
+```
+
+All modes accept it. Outputs go to the usual directory with `-signed` appended,
+such as `.build/pcb-signed/pico_fido2.uf2`. The SDK also creates an OTP JSON plan
+containing the public-key hash and boot flags. Building never applies that plan.
+Keep the private key outside the checkout and back it up. Fuse provisioning,
+signed updates and recovery must be checked on a dedicated A4 board first.
+Check a built image against its key with:
+
+```sh
+python3 firmware/tests/signed.py /absolute/path/private.pem .build/pcb-signed/pico_fido2.uf2
+```
+
 ```sh
 bash firmware/build.sh
 bash firmware/build.sh sensor

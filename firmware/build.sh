@@ -14,6 +14,14 @@ case "$mode" in
     power) dir=power ;;
     *) echo "Usage: $0 [button|sensor|pcb|enroll|enroll-pcb|power]" >&2; exit 1 ;;
 esac
+key=${SIGNING_KEY:-}
+if [[ -n $key ]]; then
+    [[ $key == /* && -f $key && -r $key ]] || {
+        echo "SIGNING_KEY must be an absolute path to a readable PEM file" >&2
+        exit 1
+    }
+    dir+=-signed
+fi
 mkdir -p .build
 
 get() {
@@ -40,15 +48,16 @@ picotool=(
     -DPICOTOOL_FETCH_FROM_GIT_PATH="$root/.build/picotool-2.3.1"
 )
 if [[ $mode == power ]]; then
-    cmake --fresh -S firmware/power -B .build/power "${picotool[@]}" \
-        -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2
-    cmake --build .build/power --parallel "${BUILD_JOBS:-4}"
+    cmake --fresh -S firmware/power -B ".build/$dir" "${picotool[@]}" \
+        -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2 -DSECURE_BOOT_PKEY="$key"
+    cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"
     exit
 fi
 
 if [[ $mode == enroll || $mode == enroll-pcb ]]; then
     cmake --fresh -S firmware/enroll -B ".build/$dir" "${picotool[@]}" \
         -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2 \
+        -DSECURE_BOOT_PKEY="$key" \
         -DFINGERTHING_SENSOR_POWER_PIN="$power_pin"
     cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"
     bash firmware/test.sh
@@ -84,6 +93,7 @@ cmake --fresh -S .build/pico-fido2 -B ".build/$dir" "${picotool[@]}" \
     -DPICO_SDK_PATH="$pico_sdk" -DPICO_BOARD=pico2 \
     -DFINGERTHING_DIR="$root/firmware" -DFINGERTHING_SENSOR="$sensor" \
     -DFINGERTHING_PCB="$pcb" \
+    -DSECURE_BOOT_PKEY="$key" \
     -DENABLE_OATH_APP=OFF -DENABLE_OTP_APP=OFF -DDEBUG_APDU=0 \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 cmake --build ".build/$dir" --parallel "${BUILD_JOBS:-4}"

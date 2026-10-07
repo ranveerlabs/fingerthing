@@ -383,3 +383,19 @@ Button, sensor and PCB builds pass with those ELF checks and the host tests.
 Offline signing and corruption checks pass on the changed images. The patch
 applies to clean pinned source and validates on repeated builds. No hardware
 or boot-fuse programming performed.
+
+## session 031 - 2026-10-06
+
+Added SIGNING_KEY for optional signed builds. It must name a readable PEM file
+by absolute path. Signed output goes into separate `-signed` directories.
+All six profiles build with a temporary secp256k1 test key. Image signatures
+verify with that key, and each OTP plan contains its public-key hash and only
+the expected boot fields. A prime256v1 key fails signature verification.
+
+Building creates files only. No OTP plan was applied and no device was
+provisioned. The private key belongs outside the checkout and needs a backup.
+Fuse provisioning and signed update and recovery behavior remain untested.
+
+A normal button build after the signed builds remains unsigned and passes the
+host tests. Offline signing and corruption checks pass on the development
+images. The temporary private keys were removed.
