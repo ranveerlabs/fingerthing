@@ -88,3 +88,8 @@ even if the image reports failure.
 UART matches can be spoofed. Enrollment has not been tested on hardware.
 
 Builds and host tests pass. No hardware, npm or FreeBSD test yet.
+
+## license
+
+[AGPL-3.0-only](LICENSE). Upstream firmware and its dependencies retain their
+own license notices.

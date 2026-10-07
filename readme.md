@@ -52,4 +52,5 @@ Changes and test results are in the [journal](JOURNAL.md).
 
 ## license
 
-[AGPL-3.0-only](LICENSE)
+[CERN-OHL-S-2.0](LICENSE). Firmware is [AGPL-3.0-only](firmware/LICENSE),
+including the pico-fido2 patches. Third-party files retain their own licenses :p
