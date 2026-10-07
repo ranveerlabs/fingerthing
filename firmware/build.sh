@@ -92,4 +92,5 @@ python3 firmware/tests/gpio.py
 python3 firmware/tests/presence.py
 python3 firmware/tests/flash.py
 python3 firmware/tests/pin.py
+python3 firmware/tests/apps.py ".build/$dir/pico_fido2.elf"
 bash firmware/test.sh

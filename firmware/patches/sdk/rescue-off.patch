@@ -1,0 +1,12 @@
+--- a/src/rescue.c
++++ b/src/rescue.c
+@@ -70,9 +70,6 @@
+     return PICOKEY_OK;
+ }
+ 
+-INITIALIZER ( rescue_ctor ) {
+-    register_app(rescue_select, rescue_aid);
+-}
+ 
+ int rescue_unload() {
+     return PICOKEY_OK;

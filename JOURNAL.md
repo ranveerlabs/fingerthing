@@ -366,3 +366,20 @@ images. Changing an application byte makes both hash and signature checks
 fail. Test keys and signed images are removed afterward. The local picotool
 build has no USB support. This check does not provision a device or prove
 boot ROM enforcement. Secure boot and physical A4 testing remain.
+
+## session 030 - 2026-10-06
+
+The inherited rescue app exposes an APDU command that programs boot fuses
+using a fixed upstream key hash. Its handler has no PIN or presence check.
+That app is now unregistered in signing firmware. Physical BOOTSEL recovery
+and first-boot OTP key initialization remain.
+
+The build check inspects each signing ELF. FIDO constructors must remain,
+while rescue symbols, the remote BOOTSEL handler and the boot-fuse writer
+must be absent. Secure-boot provisioning still needs a separate process with
+the project's own key and verified update and recovery behavior.
+
+Button, sensor and PCB builds pass with those ELF checks and the host tests.
+Offline signing and corruption checks pass on the changed images. The patch
+applies to clean pinned source and validates on repeated builds. No hardware
+or boot-fuse programming performed.

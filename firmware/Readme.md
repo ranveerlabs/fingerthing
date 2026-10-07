@@ -38,6 +38,10 @@ request. Button fallback requires a verified PIN for that request. Both time out
 after 30 seconds. Fingerprint approval never sets UV. OTP, OATH and debug output
 are disabled. Secure boot is not enabled.
 
+The inherited USB rescue app is unregistered. Its host commands cannot change
+boot fuses, reboot into BOOTSEL or sign with the device rescue key. Recovery
+uses the physical BOOTSEL control. OTP key initialization on first boot remains.
+
 The signing builds declare 100 mA USB power. Actual draw and USB suspend are
 unverified, see [power](../hardware/power.md).
 
