@@ -87,4 +87,5 @@ python3 firmware/tests/button.py
 python3 firmware/tests/gpio.py
 python3 firmware/tests/presence.py
 python3 firmware/tests/flash.py
+python3 firmware/tests/pin.py
 bash firmware/test.sh

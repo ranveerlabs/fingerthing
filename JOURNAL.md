@@ -317,3 +317,21 @@ MCU suspend and physical flash tests remain.
 
 Button, sensor and PCB signing builds pass with the host tests. The patch
 applies to the clean pinned SDK file and validates on repeated builds.
+
+## session 027 - 2026-10-06
+
+The PIN shared-secret helper overwrote an ECDH failure with the key-derivation
+result. It now returns that failure without running key derivation.
+Set-PIN and change-PIN requests now check the authentication tag length before
+comparison. Wrong lengths return CTAP2_ERR_PIN_AUTH_INVALID.
+The lengths follow [CTAP PIN protocols 1 and 2](https://fidoalliance.org/specs/fido-v2.2-ps-20250714/fido-client-to-authenticator-protocol-v2.2-ps-20250714.html#pinUvAuthProtocol):
+16 and 32 bytes respectively.
+
+Host tests compile the patched helper and both length guards. They cover tag
+lengths from 0 through 96, ECDH and key-derivation errors, unchanged output on
+failure and cleanup for both protocols. These use mocked cryptography.
+
+Button, sensor and PCB signing builds pass with the host tests. The patch
+applies to clean pinned source and validates on repeated builds.
+No Pico or signing-firmware USB device is attached here. npm, FreeBSD and
+physical checks remain.

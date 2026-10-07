@@ -1,0 +1,33 @@
+diff --git a/src/fido/cbor_client_pin.c b/src/fido/cbor_client_pin.c
+index b2c6732..c625a05 100644
+--- a/src/fido/cbor_client_pin.c
++++ b/src/fido/cbor_client_pin.c
+@@ -139,7 +139,7 @@ int ecdh(uint8_t protocol, const mbedtls_ecp_point *Q, uint8_t *sharedSecret) {
+     mbedtls_mpi z;
+     mbedtls_mpi_init(&z);
+     int ret = mbedtls_ecdh_compute_shared(&hkey.ctx.mbed_ecdh.grp, &z, Q, &hkey.ctx.mbed_ecdh.d, random_gen, NULL);
+-    ret = kdf(protocol, &z, sharedSecret);
++    if (ret == 0) ret = kdf(protocol, &z, sharedSecret);
+     mbedtls_mpi_free(&z);
+     return ret;
+ }
+@@ -377,6 +377,9 @@ int cbor_client_pin(const uint8_t *data, size_t len) {
+             (pinUvAuthProtocol == 2 && newPinEnc.len != 64 + IV_SIZE)) {
+             CBOR_ERROR(CTAP1_ERR_INVALID_PARAMETER);
+         }
++        if (pinUvAuthParam.len != (pinUvAuthProtocol == 1 ? 16 : 32)) {
++            CBOR_ERROR(CTAP2_ERR_PIN_AUTH_INVALID);
++        }
+         if (mbedtls_mpi_read_binary(&hkey.ctx.mbed_ecdh.Qp.X, kax.data, kax.len) != 0) {
+             CBOR_ERROR(CTAP1_ERR_INVALID_PARAMETER);
+         }
+@@ -455,6 +458,9 @@ int cbor_client_pin(const uint8_t *data, size_t len) {
+              (newPinEnc.len != 64 + IV_SIZE || pinHashEnc.len != 16 + IV_SIZE))) {
+             CBOR_ERROR(CTAP1_ERR_INVALID_PARAMETER);
+         }
++        if (pinUvAuthParam.len != (pinUvAuthProtocol == 1 ? 16 : 32)) {
++            CBOR_ERROR(CTAP2_ERR_PIN_AUTH_INVALID);
++        }
+         if (mbedtls_mpi_read_binary(&hkey.ctx.mbed_ecdh.Qp.X, kax.data, kax.len) != 0) {
+             CBOR_ERROR(CTAP1_ERR_INVALID_PARAMETER);
+         }
