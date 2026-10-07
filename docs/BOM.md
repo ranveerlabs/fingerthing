@@ -19,6 +19,7 @@ Its plug is not verified as compatible with the PCB's JST SH socket.
 
 The final board uses USB-C. Nothing ordered yet. A soldering iron, solder,
 wire stripper and multimeter are needed for this prototype.
+Follow the [bring-up steps](bringup.md) after the parts arrive.
 
 The [board BOM](../hardware/pcb/bom.csv) comes from the schematic. It lists
 47 fitted components with manufacturer part numbers. R1 is DNP and the four

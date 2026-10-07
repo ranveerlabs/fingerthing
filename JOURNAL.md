@@ -425,3 +425,13 @@ rule. Access stays limited to USB ID 1d50:619b and the u2f group.
 Checked the upstream driver, libfido2 backend and u2f-devd package sources.
 The device-name pattern accepts numbered HID nodes and rejects other node
 names. No FreeBSD device or npm sign-in test performed.
+
+## session 034 - 2026-10-06
+
+Added the breadboard bring-up sequence and physical Pico 2 pin numbers for the
+R503 cable. Checked the mapping against Raspberry Pi's pinout and the UART
+source. The sequence starts with the power probe and button image, then adds
+enrollment and fingerprint approval before npm setup.
+
+The host suite passes. Hardware tests, final MCU suspend support and secure
+boot provisioning still need the development board and measurements.
